@@ -1,6 +1,7 @@
 package TracteJSON;
 
 import Element.Servidor;
+import Element.Usuari;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -16,6 +17,17 @@ public class TracteJSON {
         Servidor[] usuaris = null;
         try{
             usuaris = gson.fromJson(new BufferedReader(new FileReader(path)),Servidor[].class);
+        }catch (FileNotFoundException e){
+            System.out.println("No s'ha llegit correctament el JSON");
+        }
+        return usuaris;
+    }
+
+    public Usuari[] readJSONUsers(String path){
+        Gson gson = new GsonBuilder().create();
+        Usuari[] usuaris = null;
+        try{
+            usuaris = gson.fromJson(new BufferedReader(new FileReader(path)),Usuari[].class);
         }catch (FileNotFoundException e){
             System.out.println("No s'ha llegit correctament el JSON");
         }
