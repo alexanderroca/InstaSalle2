@@ -1,5 +1,6 @@
 package TracteJSON;
 
+import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
 import com.google.gson.Gson;
@@ -32,6 +33,17 @@ public class TracteJSON {
             System.out.println("No s'ha llegit correctament el JSON");
         }
         return usuaris;
+    }
+
+    public NodeXarxa[] readJSONNodes(String path){
+        Gson gson = new GsonBuilder().create();
+        NodeXarxa[] node_xarxa = null;
+        try{
+            node_xarxa = gson.fromJson(new BufferedReader(new FileReader(path)),NodeXarxa[].class);
+        }catch (FileNotFoundException e){
+            System.out.println("No s'ha llegit correctament el JSON");
+        }
+        return node_xarxa;
     }
 
 }
