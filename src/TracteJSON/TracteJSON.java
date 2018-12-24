@@ -1,5 +1,6 @@
 package TracteJSON;
 
+import Element.Servidor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -10,11 +11,11 @@ import java.io.FileReader;
 
 public class TracteJSON {
 
-    public Object[] readJSON(String path){
+    public Servidor[] readJSONServers(String path){
         Gson gson = new GsonBuilder().create();
-        Object[] usuaris = null;
+        Servidor[] usuaris = null;
         try{
-            usuaris = gson.fromJson(new BufferedReader(new FileReader(path)),Object[].class);
+            usuaris = gson.fromJson(new BufferedReader(new FileReader(path)),Servidor[].class);
         }catch (FileNotFoundException e){
             System.out.println("No s'ha llegit correctament el JSON");
         }

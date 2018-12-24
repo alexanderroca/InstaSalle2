@@ -8,6 +8,8 @@ public class Servidor {
     private Vector location;
     private int reachable_from;
 
+
+
     public Servidor() {
         location = new Vector(2);
     }
