@@ -14,13 +14,13 @@ public class TracteJSON {
 
     public Servidor[] readJSONServers(String path){
         Gson gson = new GsonBuilder().create();
-        Servidor[] usuaris = null;
+        Servidor[] servidors = null;
         try{
-            usuaris = gson.fromJson(new BufferedReader(new FileReader(path)),Servidor[].class);
+            servidors = gson.fromJson(new BufferedReader(new FileReader(path)),Servidor[].class);
         }catch (FileNotFoundException e){
             System.out.println("No s'ha llegit correctament el JSON");
         }
-        return usuaris;
+        return servidors;
     }
 
     public Usuari[] readJSONUsers(String path){
@@ -33,4 +33,5 @@ public class TracteJSON {
         }
         return usuaris;
     }
+
 }
