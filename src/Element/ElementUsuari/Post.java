@@ -1,4 +1,4 @@
-package Element;
+package Element.ElementUsuari;
 
 import java.util.Vector;
 
