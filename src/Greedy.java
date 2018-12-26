@@ -18,7 +18,7 @@ public class Greedy {
 
         while(still_candidates_to_check(candidates, i)){
 
-            ActivitatsServer possible_candidat = extreu_millor_candidat(i);
+            int possible_candidat = extreu_millor_candidat(i);
             solution = add(possible_candidat);
 
             i++;
@@ -31,8 +31,8 @@ public class Greedy {
         return i > usuaris.length - 1;
     }
 
-    public ActivitatsServer extreu_millor_candidat(int i){
-        ActivitatsServer millor_candidat = new ActivitatsServer();
+    public int extreu_millor_candidat(int i){
+        int millor_candidat;
         double[] distancies_User_Sever = new double[servidors.length];
 
         for(int j = 0; j < servidors.length; j++){
@@ -55,16 +55,19 @@ public class Greedy {
         if(solution.getActivitats()[j].getActivity() == null){
 
             resultat = true;
-            solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever));
+            solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever, i));
         }   //if
         else{
 
+            if(){
+
+            }   //if
         }   //else
 
         return resultat;
     }
 
-    public int extractDistanciaMinima(double[] distancies_User_Sever){
+    public int extractDistanciaMinima(double[] distancies_User_Sever, int k){
         double minim = distancies_User_Sever[0];
         int servidor = 0;
 
@@ -76,11 +79,12 @@ public class Greedy {
             }   //if
         }   //for
 
+        solution.getActivitats()[k].getActivity().add(minim);
 
         return servidor;
     }
 
-    public Solution add(ActivitatsServer afegir_candidat){
+    public Solution add(int afegir_candidat){
 
     }
 }

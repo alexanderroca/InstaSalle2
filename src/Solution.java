@@ -1,8 +1,6 @@
 import Element.Servidor;
 import Element.Usuari;
 
-import java.util.ArrayList;
-
 public class Solution {
 
     private ActivitatsServer[] activitats;
@@ -15,10 +13,6 @@ public class Solution {
         seguent_germa = 0;
         seguent_nivell = 0;
         activitats = new ActivitatsServer[servidors.length];
-
-        for(int i = 0; i < activitats.length; i++){
-            activitats[i].setId(i);
-        }   //for
     }
 
     public ActivitatsServer[] getActivitats() {
