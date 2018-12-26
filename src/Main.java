@@ -22,6 +22,6 @@ public class Main {
 
         Greedy greedy = new Greedy();
 
-        greedy.greedy(usuaris);
+        greedy.greedy(usuaris, servidors);
     }
 }

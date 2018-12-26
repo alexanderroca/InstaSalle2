@@ -86,3 +86,5 @@ Aplicar Greedy per trobar una solucio. Seguidament fer BackTracking i despres Br
 
 Següent_nivell: Usuari+1
 Següent_germa: Servidor+1
+
+Heuristica funcionalitat de distribucio: nombre_activitats * proximitat_acumulada
