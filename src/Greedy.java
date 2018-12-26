@@ -12,9 +12,9 @@ public class Greedy {
 
         while(still_candidates_to_check(candidates, i)){
 
-            if(){
+            int possible_candidat = extreu_millor_candidat();
+            solution = add(solution, possible_candidat);
 
-            }   //if
             i++;
         }   //while
 
@@ -25,7 +25,20 @@ public class Greedy {
         return i > usuaris.length - 1;
     }
 
-    public boolean is_feasible(Solution solution, ){
+    public int extreu_millor_candidat(int i){
+        int j;
+
+        for(j = 0; j < servidors.length - 1; j++){
+
+            if(servidors){
+
+            }//if
+        }   //for
+
+        return j;
+    }
+
+    public Solution add(Solution s, int possible_candidat){
 
     }
 }
