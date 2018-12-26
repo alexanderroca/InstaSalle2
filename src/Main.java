@@ -1,3 +1,6 @@
+import Element.Servidor;
+import Element.Usuari;
+import TracteJSON.TracteJSON;
 
 /**
  *Main del programa InstaSalle
@@ -7,7 +10,18 @@
  */
 
 public class Main {
-    public static void main(String[] args){
 
+    public static void main(String[] args){
+        final String USERS_PATH = "jsons/users.json";
+        final String SERVERS_PATH = "jsons/servers.json";
+
+        TracteJSON tracteJSON = new TracteJSON();
+
+        Usuari[] usuaris = tracteJSON.readJSONUsers(USERS_PATH);
+        Servidor[] servidors = tracteJSON.readJSONServers(SERVERS_PATH);
+
+        Greedy greedy = new Greedy();
+
+        greedy.greedy(usuaris);
     }
 }
