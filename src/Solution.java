@@ -33,8 +33,8 @@ public class Solution {
         return usuaris;
     }
 
-    public void setUsuaris(int[] usuaris) {
-        this.usuaris = usuaris;
+    public void setUsuaris(int id, int pos) {
+        usuaris[id] = pos;
     }
 
     public int getSeguent_germa() {

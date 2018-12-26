@@ -5,6 +5,7 @@ public class Greedy {
 
     private Usuari[] candidates;
     private Servidor[] servidors;
+    private Solution solution;
 
     public Greedy(Usuari[] candidates, Servidor[] servidors) {
         this.candidates = candidates;
@@ -12,13 +13,13 @@ public class Greedy {
     }
 
     public Solution greedy(){
-        Solution solution = new Solution(candidates, servidors);
+        solution = new Solution(candidates, servidors);
         int i = 0;
 
         while(still_candidates_to_check(candidates, i)){
 
-            ActivitatsServer possible_candidat = extreu_millor_candidat(i, solution);
-            solution = add(solution, possible_candidat);
+            ActivitatsServer possible_candidat = extreu_millor_candidat(i);
+            solution = add(possible_candidat);
 
             i++;
         }   //while
@@ -30,12 +31,17 @@ public class Greedy {
         return i > usuaris.length - 1;
     }
 
-    public ActivitatsServer extreu_millor_candidat(int i, Solution solution){
+    public ActivitatsServer extreu_millor_candidat(int i){
         ActivitatsServer millor_candidat = new ActivitatsServer();
+        double[] distancies_User_Sever = new double[servidors.length];
+
+        for(int j = 0; j < servidors.length; j++){
+            distancies_User_Sever[j] = /*TODO: determinar la distancia entre Usuari i cada Servidor*/
+        }   //for
 
         for(int j = 0; j < servidors.length - 1; j++){
 
-            if(millorOpcio(j, i,solution)){
+            if(millorOpcio(j, i, distancies_User_Sever)){
 
             }//if
         }   //for
@@ -43,28 +49,38 @@ public class Greedy {
         return millor_candidat;
     }
 
-    public boolean millorOpcio(int j, int i, Solution solution){
-        boolean resultat;
+    public boolean millorOpcio(int j, int i, double[] distancies_User_Sever){
+        boolean resultat = false;
 
-        if(solution.getActivitats()[j].getActivity() == null && /*TODO: tema distancia entre usuari i servidor*/){
+        if(solution.getActivitats()[j].getActivity() == null){
+
             resultat = true;
+            solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever));
         }   //if
         else{
-            boolean trobat = false;
-            int k = 0;
 
-            while(!trobat || k < solution.getActivitats().length - 1){
-
-                if(Math.abs(candidates[i].getActivity()))
-                    trobat = true;
-                k++;
-            }
         }   //else
 
         return resultat;
     }
 
-    public Solution add(Solution s, ActivitatsServer afegir_candidat){
+    public int extractDistanciaMinima(double[] distancies_User_Sever){
+        double minim = distancies_User_Sever[0];
+        int servidor = 0;
+
+        for(int i = 1; i < distancies_User_Sever.length - 1; i++){
+
+            if(minim > distancies_User_Sever[i]){
+                minim = distancies_User_Sever[i];
+                servidor = i;
+            }   //if
+        }   //for
+
+
+        return servidor;
+    }
+
+    public Solution add(ActivitatsServer afegir_candidat){
 
     }
 }

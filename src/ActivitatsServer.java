@@ -20,4 +20,6 @@ public class ActivitatsServer {
     public void setActivity(ArrayList<Double> activity) {
         this.activity = activity;
     }
+
+
 }
