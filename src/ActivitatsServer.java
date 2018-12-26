@@ -1,7 +1,7 @@
 public class ActivitatsServer {
 
     private int id;
-    private String[] activitat;
+    private double[] activity;
 
     public int getId() {
         return id;
@@ -11,11 +11,11 @@ public class ActivitatsServer {
         this.id = id;
     }
 
-    public String[] getActivitat() {
-        return activitat;
+    public double[] getActivity() {
+        return activity;
     }
 
-    public void setActivitat(String[] activitat) {
-        this.activitat = activitat;
+    public void setActivity(double[] activity) {
+        this.activity = activity;
     }
 }

@@ -12,7 +12,7 @@ public class Greedy {
 
         while(still_candidates_to_check(candidates, i)){
 
-            int possible_candidat = extreu_millor_candidat();
+            int possible_candidat = extreu_millor_candidat(i, solution);
             solution = add(solution, possible_candidat);
 
             i++;
@@ -25,12 +25,12 @@ public class Greedy {
         return i > usuaris.length - 1;
     }
 
-    public int extreu_millor_candidat(int i){
+    public int extreu_millor_candidat(int i, Solution solution){
         int j;
 
         for(j = 0; j < servidors.length - 1; j++){
 
-            if(servidors){
+            if(candidates[i].getActivity()){
 
             }//if
         }   //for
