@@ -1,25 +1,24 @@
+import Element.Servidor;
 import Element.Usuari;
 
 import java.util.ArrayList;
 
 public class Solution {
 
-    private double proximitat_acumulat;
     private ActivitatsServer[] activitats;
     private int[] usuaris;
     private int seguent_germa;
     private int seguent_nivell;
 
-    public Solution(Usuari[] usuaris) {
+    public Solution(Usuari[] usuaris, Servidor[] servidors) {
         this.usuaris = new int[usuaris.length];
-    }
+        seguent_germa = 0;
+        seguent_nivell = 0;
+        activitats = new ActivitatsServer[servidors.length];
 
-    public double getProximitat_acumulat() {
-        return proximitat_acumulat;
-    }
-
-    public void setProximitat_acumulat(double proximitat_acumulat) {
-        this.proximitat_acumulat = proximitat_acumulat;
+        for(int i = 0; i < activitats.length; i++){
+            activitats[i].setId(i);
+        }   //for
     }
 
     public ActivitatsServer[] getActivitats() {

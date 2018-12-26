@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class ActivitatsServer {
 
     private int id;
-    private double[] activity;
+    private ArrayList<Double> activity;
 
     public int getId() {
         return id;
@@ -11,11 +13,11 @@ public class ActivitatsServer {
         this.id = id;
     }
 
-    public double[] getActivity() {
+    public ArrayList<Double> getActivity() {
         return activity;
     }
 
-    public void setActivity(double[] activity) {
+    public void setActivity(ArrayList<Double> activity) {
         this.activity = activity;
     }
 }

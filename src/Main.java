@@ -20,8 +20,8 @@ public class Main {
         Usuari[] usuaris = tracteJSON.readJSONUsers(USERS_PATH);
         Servidor[] servidors = tracteJSON.readJSONServers(SERVERS_PATH);
 
-        Greedy greedy = new Greedy();
+        Greedy greedy = new Greedy(usuaris, servidors);
 
-        greedy.greedy(usuaris, servidors);
+        greedy.greedy();
     }
 }
