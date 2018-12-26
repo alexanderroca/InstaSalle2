@@ -3,12 +3,18 @@ import Element.Usuari;
 
 public class Greedy {
 
-    public Solution greedy(Usuari[] candidates, Servidor[] servidors){
-        Solution solution = new Solution();
+    private Usuari[] candidates;
+    private Servidor[] servidors;
+
+    public Solution greedy(){
+        Solution solution = new Solution(candidates);
         int i = 0;
 
         while(still_candidates_to_check(candidates, i)){
 
+            if(){
+
+            }   //if
             i++;
         }   //while
 
@@ -17,5 +23,9 @@ public class Greedy {
 
     public boolean still_candidates_to_check(Usuari[] usuaris, int i){
         return i > usuaris.length - 1;
+    }
+
+    public boolean is_feasible(Solution solution, ){
+
     }
 }
