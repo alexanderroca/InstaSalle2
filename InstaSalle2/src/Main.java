@@ -1,3 +1,4 @@
+import Menus.Menu;
 
 /**
  *Main del programa InstaSalle

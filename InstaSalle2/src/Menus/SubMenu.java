@@ -1,3 +1,5 @@
+package Menus;
+
 import java.util.Scanner;
 
 public class SubMenu {

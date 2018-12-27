@@ -13,7 +13,8 @@ import java.io.FileReader;
 
 public class TracteJSON {
 
-    public Servidor[] readJSONServers(String path){
+    public Servidor[] readJSONServers(){
+        String path = "jsons/servers.json";
         Gson gson = new GsonBuilder().create();
         Servidor[] servidors = null;
         try{
@@ -24,7 +25,8 @@ public class TracteJSON {
         return servidors;
     }
 
-    public Usuari[] readJSONUsers(String path){
+    public Usuari[] readJSONUsers(){
+        String path = "jsons/users.json";
         Gson gson = new GsonBuilder().create();
         Usuari[] usuaris = null;
         try{
@@ -35,7 +37,8 @@ public class TracteJSON {
         return usuaris;
     }
 
-    public NodeXarxa[] readJSONNodes(String path){
+    public NodeXarxa[] readJSONNodes(){
+        String path = "jsons/nodes.json";
         Gson gson = new GsonBuilder().create();
         NodeXarxa[] node_xarxa = null;
         try{

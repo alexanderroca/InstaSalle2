@@ -1,9 +1,21 @@
+package Menus;
+
+import Element.Node.NodeXarxa;
+import Element.Servidor;
+import Element.Usuari;
+import Menus.SubMenu;
+import TracteJSON.TracteJSON;
+
 import java.util.Scanner;
 
 public class Menu {
     public void mostraMenu(){
 
         SubMenu submenu = new SubMenu();
+        TracteJSON tracteJSON = new TracteJSON();
+        Usuari[] usuaris = tracteJSON.readJSONUsers();
+        NodeXarxa[] nodeXarxas = tracteJSON.readJSONNodes();
+        Servidor[] servers = tracteJSON.readJSONServers();
 
         String cas;
         Scanner sc = new Scanner(System.in);
@@ -11,7 +23,7 @@ public class Menu {
         int opcio = 0;
         // Pintem el menú
         do{
-            System.out.println("Menu:");
+            System.out.println("Menus.Menu:");
             System.out.println("1. Trobar servidor");
             System.out.println("2. Distribuir usuaris");
             System.out.println("3. Sortir\n");
