@@ -28,7 +28,7 @@ public class Greedy {
     }
 
     public boolean still_candidates_to_check(Usuari[] usuaris, int i){
-        return i > usuaris.length - 1;
+        return i < usuaris.length;
     }
 
     public int extreu_millor_candidat(int i){
@@ -58,24 +58,26 @@ public class Greedy {
     public boolean millorOpcio(int j, int i, double[] distancies_User_Sever){
         boolean resultat = false;
 
-        if(solution.getActivitats()[j].getActivity() == null){
-
-            resultat = true;
-            solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever, i));
-        }   //if
-        else{
-
-            if(solution.getActivitats()[j].getActivity().contains(candidates[i].getActivity())){
+        for(int k = 0; k < solution.getActivitats()[j].length - 1; k++) {
+            if (solution.getActivitats()[j][k] == -1) {
 
                 resultat = true;
-                solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever, i));
+                solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever, i, k));
             }   //if
-        }   //else
+            else {
+
+                if (solution.getActivitats()[j][k] == candidates[i].getActivity()) {
+
+                    resultat = true;
+                    solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever, i, k));
+                }   //if
+            }   //else
+        }   //for
 
         return resultat;
     }
 
-    public int extractDistanciaMinima(double[] distancies_User_Sever, int k){
+    public int extractDistanciaMinima(double[] distancies_User_Sever, int k, int t){
         double minim = distancies_User_Sever[0];
         int servidor = 0;
 
@@ -87,7 +89,7 @@ public class Greedy {
             }   //if
         }   //for
 
-        solution.getActivitats()[k].getActivity().add(minim);
+        solution.getActivitats()[k][t] = minim;
 
         return servidor;
     }

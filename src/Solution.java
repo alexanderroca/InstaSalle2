@@ -1,9 +1,11 @@
 import Element.Servidor;
 import Element.Usuari;
 
+import java.util.ArrayList;
+
 public class Solution {
 
-    private ActivitatsServer[] activitats;
+    private double[][] activitats;
     private int[] usuaris;
     private int seguent_germa;
     private int seguent_nivell;
@@ -12,14 +14,24 @@ public class Solution {
         this.usuaris = new int[usuaris.length];
         seguent_germa = 0;
         seguent_nivell = 0;
-        activitats = new ActivitatsServer[servidors.length];
+        activitats = new double[servidors.length][usuaris.length];
+
+        for(int i = 0; i < usuaris.length; i++){
+            this.usuaris[i] = -1;
+        }   //for
+
+        for(int i = 0; i < servidors.length; i++){
+            for(int j = 0; j < usuaris.length; j++){
+                activitats[i][j] = -1;
+            }   //for
+        }   //for
     }
 
-    public ActivitatsServer[] getActivitats() {
+    public double[][] getActivitats() {
         return activitats;
     }
 
-    public void setActivitats(ActivitatsServer[] activitats) {
+    public void setActivitats(double[][] activitats) {
         this.activitats = activitats;
     }
 

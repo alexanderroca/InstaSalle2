@@ -22,7 +22,8 @@ public class Main {
 
         Greedy greedy = new Greedy(usuaris, servidors);
 
-        Solution solution = greedy.greedy();
+        Solution solution = new Solution(usuaris, servidors);
+        solution = greedy.greedy();
 
         System.out.println("Gracies per usar el nostre programa!");
     }
