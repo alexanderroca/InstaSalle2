@@ -35,8 +35,15 @@ public class Greedy {
         int millor_candidat;
         double[] distancies_User_Sever = new double[servidors.length];
 
+
         for(int j = 0; j < servidors.length; j++){
-            distancies_User_Sever[j] = /*TODO: determinar la distancia entre Usuari i cada Servidor*/
+            double longitudO = (double) candidates[i].getPosts().get(candidates[i].getPosts().size() - 1).getLocation().get(1);
+            double latitudO = (double) candidates[i].getPosts().get(candidates[i].getPosts().size() - 1).getLocation().get(0);
+            double longitudF = (double) servidors[j].getLocation().get(1);
+            double latitudF = (double) servidors[j].getLocation().get(0);
+
+            distancies_User_Sever[j] =
+                     candidates[i].calculaDistancia(latitudO, longitudO, latitudF, longitudF);
         }   //for
 
         for(int j = 0; j < servidors.length - 1; j++){
