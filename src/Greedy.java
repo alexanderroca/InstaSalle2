@@ -19,7 +19,7 @@ public class Greedy {
         while(still_candidates_to_check(candidates, i)){
 
             int possible_candidat = extreu_millor_candidat(i);
-            solution = add(possible_candidat);
+            add(possible_candidat, i);
 
             i++;
         }   //while
@@ -32,7 +32,7 @@ public class Greedy {
     }
 
     public int extreu_millor_candidat(int i){
-        int millor_candidat;
+        int millor_candidat = -1;
         double[] distancies_User_Sever = new double[servidors.length];
 
 
@@ -42,14 +42,13 @@ public class Greedy {
             double longitudF = (double) servidors[j].getLocation().get(1);
             double latitudF = (double) servidors[j].getLocation().get(0);
 
-            distancies_User_Sever[j] =
-                     candidates[i].calculaDistancia(latitudO, longitudO, latitudF, longitudF);
+            distancies_User_Sever[j] = candidates[i].calculaDistancia(latitudO, longitudO, latitudF, longitudF);
         }   //for
 
         for(int j = 0; j < servidors.length - 1; j++){
 
             if(millorOpcio(j, i, distancies_User_Sever)){
-
+                millor_candidat = j;
             }//if
         }   //for
 
@@ -66,8 +65,10 @@ public class Greedy {
         }   //if
         else{
 
-            if(){
+            if(solution.getActivitats()[j].getActivity().contains(candidates[i].getActivity())){
 
+                resultat = true;
+                solution.setUsuaris(i, extractDistanciaMinima(distancies_User_Sever, i));
             }   //if
         }   //else
 
@@ -91,7 +92,7 @@ public class Greedy {
         return servidor;
     }
 
-    public Solution add(int afegir_candidat){
-
+    public void add(int afegir_candidat, int usuari){
+        solution.setUsuaris(afegir_candidat, usuari);
     }
 }
