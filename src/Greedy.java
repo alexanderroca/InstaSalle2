@@ -32,15 +32,25 @@ public class Greedy {
     }
 
     public boolean isFeasible(){
-        boolean ok = false;
 
+        double[] aux = new double[servidors.length];
 
+        for(solution.setSeguent_germa(0); solution.getSeguent_germa() < servidors.length;
+            solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
-        for(int i = 0; ; i++){
+            double latitudO = (double) candidates[solution.getSeguent_nivell()].getPosts().
+                    get(candidates[solution.getSeguent_nivell()].getPosts().size()).getLocation().get(0);
+            double longitudO = (double) candidates[solution.getSeguent_nivell()].getPosts().
+                    get(candidates[solution.getSeguent_nivell()].getPosts().size()).getLocation().get(1);
+            double latitudF = (double) servidors[0].getLocation().get(0);
+            double longitudF = (double) servidors[0].getLocation().get(1);
+
+            aux[solution.getSeguent_germa()] =
+                    Math.abs(candidates[solution.getSeguent_nivell()].calculaDistancia(latitudO, longitudO, latitudF, longitudF));
 
         }   //for
 
-        return ok;
+        return true;
     }
 
     public void add(){
