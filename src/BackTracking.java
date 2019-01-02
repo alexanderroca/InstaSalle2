@@ -10,27 +10,28 @@ public class BackTracking {
     public BackTracking(Usuari[] candidates, Servidor[] servidors) {
         this.candidates = candidates;
         this.servidors = servidors;
+        solution = new Solution(candidates, servidors);
     }
 
     public Solution backtracking(Solution best){
-        solution = new Solution(candidates, servidors);
 
         if(casTrivial())
             best = tracteSolucio(best);
 
         else{
-            for(solution.setSeguent_nivell(0); solution.getSeguent_nivell() < candidates.length;
-                solution.setSeguent_nivell(solution.getSeguent_nivell() + 1)){
+            for(solution.setSeguent_germa(0); solution.getSeguent_germa() < servidors.length - 1;
+                solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
-                if(esPrometedora()){
+                if(esPrometedora(best)){
 
                     solution.setUsuaris(solution.getSeguent_nivell(), solution.getSeguent_germa());
                     solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
 
+                    solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
                     backtracking(best);
 
-                    solution.setUsuaris(solution.getSeguent_nivell(), -1);
-                    solution.setActivitats( -candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
+                    solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
+
                 }   //if
             }   //for
         }   //else
@@ -39,7 +40,7 @@ public class BackTracking {
     }
 
     public boolean casTrivial(){
-        return solution.getSeguent_nivell() < solution.getUsuaris().length;
+        return solution.getSeguent_nivell() == solution.getUsuaris().length - 1;
     }
 
     public Solution tracteSolucio(Solution best){
@@ -53,7 +54,7 @@ public class BackTracking {
         return best;
     }
 
-    public boolean esPrometedora(){
-        return solution.getSeguent_germa() < servidors.length;
+    public boolean esPrometedora(Solution best){
+        return (solution.getMax() - solution.getMin()) < (best.getMax() - best.getMin());
     }
 }

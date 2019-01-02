@@ -25,6 +25,9 @@ public class Main {
         Solution solution = new Solution(usuaris, servidors);
         solution = greedy.greedy();
 
+        solution.setSeguent_nivell(0);
+        solution.setSeguent_germa(0);
+
         BackTracking backTracking = new BackTracking(usuaris, servidors);
         solution = backTracking.backtracking(solution);
 
