@@ -82,7 +82,7 @@ struct Solucio
 
 fistruct
 	
-Aplicar Greedy per trobar una solucio. Seguidament fer BackTracking i despres Branch&Bound.
+Aplicar EstructuresCombinatories.Greedy per trobar una solucio. Seguidament fer EstructuresCombinatories.BackTracking i despres Branch&Bound.
 
 Seg�ent_nivell: Usuari+1
 Seg�ent_germa: Servidor+1

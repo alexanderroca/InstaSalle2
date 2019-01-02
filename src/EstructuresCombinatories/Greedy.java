@@ -1,5 +1,8 @@
+package EstructuresCombinatories;
+
 import Element.Servidor;
 import Element.Usuari;
+import EstructuresCombinatories.Solution;
 
 public class Greedy {
 

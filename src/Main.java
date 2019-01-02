@@ -1,6 +1,9 @@
 import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
+import EstructuresCombinatories.BackTracking;
+import EstructuresCombinatories.Greedy;
+import EstructuresCombinatories.Solution;
 import TracteJSON.TracteJSON;
 
 /**
