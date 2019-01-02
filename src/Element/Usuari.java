@@ -2,6 +2,7 @@ package Element;
 
 import Element.ElementUsuari.Connection;
 import Element.ElementUsuari.Post;
+import Element.Node.NodeXarxa;
 
 import java.util.ArrayList;
 
@@ -75,4 +76,6 @@ public class Usuari {
 
         return RADI_TERRA * var2;    //distancia
     }
+
+
 }

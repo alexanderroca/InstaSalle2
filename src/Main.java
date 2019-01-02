@@ -31,7 +31,7 @@ public class Main {
         solution.setSeguent_germa(0);
 
         BackTracking backTracking = new BackTracking(usuaris, servidors);
-        solution = backTracking.backtracking(solution);
+        solution = backTracking.backtrackingDistribucio(solution);
 
         System.out.println("Gracies per usar el nostre programa!");
     }

@@ -12,17 +12,17 @@ Datasets en format JSON:
 Usuaris -> Node de xarxa ... -> Servidor
 
 Funcionalitats:
-·Servidors interconnectats a partir de nodes de xarxa.
+ï¿½Servidors interconnectats a partir de nodes de xarxa.
 
-Objectiu: Buscar 2 camins diferents: -El més fiable
-				     -Mínim cost
+Objectiu: Buscar 2 camins diferents: -El mï¿½s fiable
+				     -Mï¿½nim cost
 Calcul de la fiabilitat: productori del camp reliability de Node Xarxa
 
-·Distribuir N Usuaris a M Servidors:
+ï¿½Distribuir N Usuaris a M Servidors:
 	Prioritats: 1.activitats similars amb els usuaris d'un servidor
 		    2.proximitat del servidor
 
-·Calcul d'equitivitat de carrega:
+ï¿½Calcul d'equitivitat de carrega:
 	equitivitat = servidor_amb_mes_carrega - servidor_amb_menys_carrega
 
 
@@ -84,8 +84,8 @@ fistruct
 	
 Aplicar Greedy per trobar una solucio. Seguidament fer BackTracking i despres Branch&Bound.
 
-Següent_nivell: Usuari+1
-Següent_germa: Servidor+1
+Segï¿½ent_nivell: Usuari+1
+Segï¿½ent_germa: Servidor+1
 
 Heuristica funcionalitat de distribucio: nombre_activitats * proximitat_acumulada,
-Distancia d'un usuari amb un servidor: últim post publicat. 
+Distancia d'un usuari amb un servidor: ï¿½ltim post publicat. 

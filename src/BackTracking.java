@@ -13,7 +13,7 @@ public class BackTracking {
         solution = new Solution(candidates, servidors);
     }
 
-    public Solution backtracking(Solution best){
+    public Solution backtrackingDistribucio(Solution best){
 
         if(casTrivial())
             best = tracteSolucio(best);
@@ -28,7 +28,7 @@ public class BackTracking {
                     solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
 
                     solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
-                    backtracking(best);
+                    backtrackingDistribucio(best);
 
                     solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
 
