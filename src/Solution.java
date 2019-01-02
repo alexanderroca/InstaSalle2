@@ -55,10 +55,6 @@ public class Solution {
         activitats[pos] = activitats[pos] + activitat;
     }
 
-    public void setUsuaris(int[] usuaris) {
-        this.usuaris = usuaris;
-    }
-
     public int[] getUsuaris() {
         return usuaris;
     }

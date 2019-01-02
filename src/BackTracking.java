@@ -16,30 +16,33 @@ public class BackTracking {
         solution = new Solution(candidates, servidors);
 
         if(casTrivial())
-            tracteSolucio(best);
+            best = tracteSolucio(best);
 
         else{
-            for(Usuari candidat : candidates){
+            for(solution.setSeguent_nivell(0); solution.getSeguent_nivell() < candidates.length;
+                solution.setSeguent_nivell(solution.getSeguent_nivell() + 1)){
 
                 if(esPrometedora()){
 
-                    backtracking();
+                    solution.setUsuaris(solution.getSeguent_nivell(), solution.getSeguent_germa());
+                    solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
+
+                    backtracking(best);
+
+                    solution.setUsuaris(solution.getSeguent_nivell(), -1);
+                    solution.setActivitats( -candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
                 }   //if
             }   //for
         }   //else
 
-        return solution;
-    }
-
-    public boolean still_options_to_check(){
-        return solution.getSeguent_germa() < servidors.length;
+        return best;
     }
 
     public boolean casTrivial(){
         return solution.getSeguent_nivell() < solution.getUsuaris().length;
     }
 
-    public void tracteSolucio(Solution best){
+    public Solution tracteSolucio(Solution best){
 
         double equitivitat_best = best.getMax() - best.getMin();
         double equitivitat_solution = solution.getMax() - solution.getMin();
@@ -47,10 +50,10 @@ public class BackTracking {
         if(equitivitat_best > equitivitat_solution)
             best = solution;
 
+        return best;
     }
 
     public boolean esPrometedora(){
-
-        return true;
+        return solution.getSeguent_germa() < servidors.length;
     }
 }
