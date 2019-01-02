@@ -12,11 +12,11 @@ public class BackTracking {
         this.servidors = servidors;
     }
 
-    public Solution backtracking(){
+    public Solution backtracking(Solution best){
         solution = new Solution(candidates, servidors);
 
         if(casTrivial())
-            tracteSolucio();
+            tracteSolucio(best);
 
         else{
             for(Usuari candidat : candidates){
@@ -39,7 +39,13 @@ public class BackTracking {
         return solution.getSeguent_nivell() < solution.getUsuaris().length;
     }
 
-    public void tracteSolucio(){
+    public void tracteSolucio(Solution best){
+
+        double equitivitat_best = best.getMax() - best.getMin();
+        double equitivitat_solution = solution.getMax() - solution.getMin();
+
+        if(equitivitat_best > equitivitat_solution)
+            best = solution;
 
     }
 
