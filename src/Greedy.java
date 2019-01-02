@@ -60,7 +60,7 @@ public class Greedy {
             if(millor_distancia > aux[solution.getSeguent_germa()] &&
                     solution.getActivitats(millor_servidor) >= solution.getActivitats(solution.getSeguent_germa())){
 
-                millor_servidor = servidors[solution.getSeguent_germa()].getId();
+                millor_servidor = solution.getSeguent_germa();
                 millor_distancia = aux[solution.getSeguent_germa()];
             }   //if
             else if(solution.getActivitats(millor_servidor) > solution.getActivitats(solution.getSeguent_germa())){
