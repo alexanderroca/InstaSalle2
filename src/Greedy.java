@@ -64,14 +64,15 @@ public class Greedy {
                 millor_servidor = servidors[solution.getSeguent_germa()].getId();
                 millor_distancia = aux[solution.getSeguent_germa()];
             }   //if
-            else if(millor_distancia > aux[solution.getSeguent_germa()] &&
-                    solution.getActivitats(millor_servidor) < solution.getActivitats(solution.getSeguent_germa()) ||
-                    millor_distancia < aux[solution.getSeguent_germa()] &&
-                            solution.getActivitats(millor_servidor) > solution.getActivitats(solution.getSeguent_germa())){
-                
+            else if(solution.getActivitats(millor_servidor) > solution.getActivitats(solution.getSeguent_germa())){
+
+                millor_servidor = servidors[solution.getSeguent_germa()].getId();
+                millor_distancia = aux[solution.getSeguent_germa()];
             }   //else-if
 
         }   //for
+
+        solution.setSeguent_germa(millor_servidor);
 
         return true;
     }
