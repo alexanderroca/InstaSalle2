@@ -26,7 +26,7 @@ public class Solution {
     }
 
     public void setActivitats(double activitat, int pos) {
-        this.activitats[pos] += activitat;
+        activitats[pos] = activitats[pos] + activitat;
     }
 
     public void setUsuaris(int[] usuaris) {

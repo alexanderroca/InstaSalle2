@@ -14,14 +14,13 @@ public class Greedy {
 
     public Solution greedy(){
         solution = new Solution(candidates, servidors);
-        int i = 0;
 
         while(still_candidates_to_check()){
 
             if(isFeasible())
                 add();
 
-            solution.setSeguent_nivell(solution.getSeguent_germa() + 1);
+            solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
         }   //while
 
         return solution;
@@ -40,11 +39,11 @@ public class Greedy {
             solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
             double latitudO = (double) candidates[solution.getSeguent_nivell()].getPosts().
-                    get(candidates[solution.getSeguent_nivell()].getPosts().size()).getLocation().get(0);
+                    get(candidates[solution.getSeguent_nivell()].getPosts().size() - 1).getLocation().get(0);
             double longitudO = (double) candidates[solution.getSeguent_nivell()].getPosts().
-                    get(candidates[solution.getSeguent_nivell()].getPosts().size()).getLocation().get(1);
-            double latitudF = (double) servidors[0].getLocation().get(0);
-            double longitudF = (double) servidors[0].getLocation().get(1);
+                    get(candidates[solution.getSeguent_nivell()].getPosts().size() - 1).getLocation().get(1);
+            double latitudF = (double) servidors[solution.getSeguent_germa()].getLocation().get(0);
+            double longitudF = (double) servidors[solution.getSeguent_germa()].getLocation().get(1);
 
             aux[solution.getSeguent_germa()] =
                     Math.abs(candidates[solution.getSeguent_nivell()].calculaDistancia(latitudO, longitudO, latitudF, longitudF));
@@ -59,7 +58,7 @@ public class Greedy {
             solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
             if(millor_distancia > aux[solution.getSeguent_germa()] &&
-                    solution.getActivitats(millor_servidor) > solution.getActivitats(solution.getSeguent_germa())){
+                    solution.getActivitats(millor_servidor) >= solution.getActivitats(solution.getSeguent_germa())){
 
                 millor_servidor = servidors[solution.getSeguent_germa()].getId();
                 millor_distancia = aux[solution.getSeguent_germa()];
