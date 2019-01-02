@@ -19,7 +19,6 @@ public class BackTracking {
 
     public BackTracking(NodeXarxa[] nodes_xarxa){
         this.nodes_xarxa = nodes_xarxa;
-
     }
 
     public Solution backtrackingDistribucio(Solution best){
@@ -53,7 +52,7 @@ public class BackTracking {
     }
 
     public boolean casTrivial2(){
-        return (int) solution.getCami().get(solution.getCami().size()) == solution.getTo_node();
+        return (int) solution.getCami()[solution.getCami().length] == solution.getTo_node();
     }
 
     public Solution tracteSolucio(Solution best){
@@ -71,12 +70,37 @@ public class BackTracking {
         return (solution.getMax() - solution.getMin()) < (best.getMax() - best.getMin());
     }
 
+    public boolean esPrometedora2(Solution best){
+        return solution.getCost() < best.getCost();
+    }
+
     public Solution backtrackingCamiFiable(Solution best){
 
         if(casTrivial2())
             best = tracteSolucio(best);
+
         else{
 
+            for(solution.setSeguent_germa(0);
+                solution.getSeguent_germa() < nodes_xarxa[solution.getSeguent_germa()].getConnectsTo().size();
+                solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
+
+                for(int j = 0; j < nodes_xarxa[solution.getSeguent_germa()].getConnectsTo().size(); j++) {
+
+                    if (esPrometedora2(best)) {
+
+                        solution.setCami(nodes_xarxa[solution.getSeguent_germa()].getId(),
+                                nodes_xarxa[solution.getSeguent_germa()].getConnectsTo().get(j).getTo());
+                        solution.setCost(nodes_xarxa[solution.getSeguent_germa()].getReliability());
+
+                        solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
+                        backtrackingCamiFiable(best);
+
+                        solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
+
+                    }   //if
+                }   //for
+            }   //for
         }   //else
 
         return best;

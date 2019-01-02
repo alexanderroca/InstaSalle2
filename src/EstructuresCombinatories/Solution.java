@@ -11,7 +11,8 @@ public class Solution {
     private int[] usuaris;
     private int seguent_germa;
     private int seguent_nivell;
-    private ArrayList cami;
+    private int[] cami;
+    private double cost;
     private int from_node;
     private int to_node;
 
@@ -26,12 +27,18 @@ public class Solution {
         }   //for
     }
 
-    public Solution(int from_node, int to_node){
+    public Solution(int from_node, int to_node, Servidor[] servidors){
         seguent_germa = 0;
         seguent_nivell = 0;
+        cost = 9999;
         this.from_node = from_node;
         this.to_node = to_node;
-        cami = new ArrayList();
+
+        cami = new int[servidors.length];
+
+        for(int i = 0; i < servidors.length; i++)
+            cami[i] = -1;
+
     }
 
     public double getMax(){
@@ -92,12 +99,20 @@ public class Solution {
         this.seguent_nivell = seguent_nivell;
     }
 
-    public ArrayList getCami() {
+    public int[] getCami() {
         return cami;
     }
 
-    public void setCami(ArrayList cami) {
-        this.cami = cami;
+    public void setCami(int pos, int value) {
+        cami[pos] = value;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     public int getFrom_node() {
