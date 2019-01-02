@@ -21,6 +21,32 @@ public class Solution {
         }   //for
     }
 
+    public double getMax(){
+        double max = activitats[0];
+
+        for(int i = 1; i < activitats.length; i++){
+
+            if(max < activitats[i])
+                max = activitats[i];
+
+        }   //for
+
+        return max;
+    }
+
+    public double getMin(){
+        double min = activitats[0];
+
+        for(int i = 1; i < activitats.length; i++){
+
+            if(min > activitats[i])
+                min = activitats[i];
+
+        }   //for
+
+        return min;
+    }
+
     public double getActivitats(int pos) {
         return activitats[pos];
     }
