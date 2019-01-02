@@ -25,6 +25,9 @@ public class Main {
         Solution solution = new Solution(usuaris, servidors);
         solution = greedy.greedy();
 
+        BackTracking backTracking = new BackTracking(usuaris, servidors);
+        solution = backTracking.backtracking(solution);
+
         System.out.println("Gracies per usar el nostre programa!");
     }
 }
