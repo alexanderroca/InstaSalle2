@@ -50,7 +50,7 @@ public class Greedy {
 
         }   //for
 
-        int millor_servidor = servidors[0].getId();
+        int millor_servidor = 0;
         double millor_distancia = aux[0];
 
         //Miro l'equitivitat dels servidors, cosa que sera mes prioritari que les distancies
@@ -79,7 +79,7 @@ public class Greedy {
     public void add(){
 
         solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
-        solution.setUsuaris(solution.getSeguent_germa(), solution.getSeguent_germa());
+        solution.setUsuaris(solution.getSeguent_nivell(), solution.getSeguent_germa());
     }
 
 }
