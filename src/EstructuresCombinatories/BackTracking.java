@@ -1,5 +1,6 @@
 package EstructuresCombinatories;
 
+import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
 
@@ -7,12 +8,18 @@ public class BackTracking {
 
     private Usuari[] candidates;
     private Servidor[] servidors;
+    private NodeXarxa[] nodes_xarxa;
     private Solution solution;
 
     public BackTracking(Usuari[] candidates, Servidor[] servidors) {
         this.candidates = candidates;
         this.servidors = servidors;
         solution = new Solution(candidates, servidors);
+    }
+
+    public BackTracking(NodeXarxa[] nodes_xarxa){
+        this.nodes_xarxa = nodes_xarxa;
+
     }
 
     public Solution backtrackingDistribucio(Solution best){
@@ -59,4 +66,5 @@ public class BackTracking {
     public boolean esPrometedora(Solution best){
         return (solution.getMax() - solution.getMin()) < (best.getMax() - best.getMin());
     }
+
 }

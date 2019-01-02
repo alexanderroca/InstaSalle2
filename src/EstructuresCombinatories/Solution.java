@@ -11,6 +11,7 @@ public class Solution {
     private int[] usuaris;
     private int seguent_germa;
     private int seguent_nivell;
+    private ArrayList cami;
 
     public Solution(Usuari[] usuaris, Servidor[] servidors) {
         this.usuaris = new int[usuaris.length];
@@ -21,6 +22,12 @@ public class Solution {
         for(int i = 0; i < usuaris.length; i++){
             this.usuaris[i] = -1;
         }   //for
+    }
+
+    public Solution(){
+        seguent_germa = 0;
+        seguent_nivell = 0;
+        cami = new ArrayList();
     }
 
     public double getMax(){
