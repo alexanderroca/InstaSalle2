@@ -52,6 +52,10 @@ public class BackTracking {
         return solution.getSeguent_nivell() == solution.getUsuaris().length - 1;
     }
 
+    public boolean casTrivial2(){
+        return (int) solution.getCami().get(solution.getCami().size()) == solution.getTo_node();
+    }
+
     public Solution tracteSolucio(Solution best){
 
         double equitivitat_best = best.getMax() - best.getMin();
@@ -65,6 +69,17 @@ public class BackTracking {
 
     public boolean esPrometedora(Solution best){
         return (solution.getMax() - solution.getMin()) < (best.getMax() - best.getMin());
+    }
+
+    public Solution backtrackingCamiFiable(Solution best){
+
+        if(casTrivial2())
+            best = tracteSolucio(best);
+        else{
+
+        }   //else
+
+        return best;
     }
 
 }

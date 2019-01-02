@@ -12,6 +12,8 @@ public class Solution {
     private int seguent_germa;
     private int seguent_nivell;
     private ArrayList cami;
+    private int from_node;
+    private int to_node;
 
     public Solution(Usuari[] usuaris, Servidor[] servidors) {
         this.usuaris = new int[usuaris.length];
@@ -24,9 +26,11 @@ public class Solution {
         }   //for
     }
 
-    public Solution(){
+    public Solution(int from_node, int to_node){
         seguent_germa = 0;
         seguent_nivell = 0;
+        this.from_node = from_node;
+        this.to_node = to_node;
         cami = new ArrayList();
     }
 
@@ -86,5 +90,29 @@ public class Solution {
 
     public void setSeguent_nivell(int seguent_nivell) {
         this.seguent_nivell = seguent_nivell;
+    }
+
+    public ArrayList getCami() {
+        return cami;
+    }
+
+    public void setCami(ArrayList cami) {
+        this.cami = cami;
+    }
+
+    public int getFrom_node() {
+        return from_node;
+    }
+
+    public void setFrom_node(int from_node) {
+        this.from_node = from_node;
+    }
+
+    public int getTo_node() {
+        return to_node;
+    }
+
+    public void setTo_node(int to_node) {
+        this.to_node = to_node;
     }
 }
