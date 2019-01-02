@@ -58,9 +58,18 @@ public class Greedy {
         for(solution.setSeguent_germa(1); solution.getSeguent_germa() < servidors.length;
             solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
-            if(millor_distancia > aux[solution.getSeguent_germa()] && solution.getActivitats()){
+            if(millor_distancia > aux[solution.getSeguent_germa()] &&
+                    solution.getActivitats(millor_servidor) > solution.getActivitats(solution.getSeguent_germa())){
 
+                millor_servidor = servidors[solution.getSeguent_germa()].getId();
+                millor_distancia = aux[solution.getSeguent_germa()];
             }   //if
+            else if(millor_distancia > aux[solution.getSeguent_germa()] &&
+                    solution.getActivitats(millor_servidor) < solution.getActivitats(solution.getSeguent_germa()) ||
+                    millor_distancia < aux[solution.getSeguent_germa()] &&
+                            solution.getActivitats(millor_servidor) > solution.getActivitats(solution.getSeguent_germa())){
+                
+            }   //else-if
 
         }   //for
 
