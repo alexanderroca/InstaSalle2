@@ -1,3 +1,4 @@
+import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
 import TracteJSON.TracteJSON;
@@ -14,16 +15,17 @@ public class Main {
     public static void main(String[] args){
         final String USERS_PATH = "jsons/users.json";
         final String SERVERS_PATH = "jsons/servers.json";
+        final String NODE_PATH = "jsons/nodes.json";
 
         TracteJSON tracteJSON = new TracteJSON();
 
         Usuari[] usuaris = tracteJSON.readJSONUsers(USERS_PATH);
         Servidor[] servidors = tracteJSON.readJSONServers(SERVERS_PATH);
+        NodeXarxa[] nodes_xarxa = tracteJSON.readJSONNodes(NODE_PATH);
 
         Greedy greedy = new Greedy(usuaris, servidors);
 
-        Solution solution = new Solution(usuaris, servidors);
-        solution = greedy.greedy();
+        Solution solution = greedy.greedy();
 
         solution.setSeguent_nivell(0);
         solution.setSeguent_germa(0);

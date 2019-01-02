@@ -2,6 +2,7 @@ package TracteJSON;
 
 
 //import Element.Node.NodeXarxa;
+import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
 import com.google.gson.Gson;
@@ -36,7 +37,7 @@ public class TracteJSON {
         return usuaris;
     }
 
-  /*  public NodeXarxa[] readJSONNodes(String path){
+    public NodeXarxa[] readJSONNodes(String path){
         Gson gson = new GsonBuilder().create();
         NodeXarxa[] node_xarxa = null;
         try{
@@ -46,5 +47,5 @@ public class TracteJSON {
         }
         return node_xarxa;
     }
-*/
+
 }
