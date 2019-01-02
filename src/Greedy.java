@@ -35,6 +35,7 @@ public class Greedy {
 
         double[] aux = new double[servidors.length];
 
+        //Determino les distancies
         for(solution.setSeguent_germa(0); solution.getSeguent_germa() < servidors.length;
             solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
@@ -50,17 +51,25 @@ public class Greedy {
 
         }   //for
 
+        int millor_servidor = servidors[0].getId();
+        double millor_distancia = aux[0];
+
+        //Miro l'equitivitat dels servidors, cosa que sera mes prioritari que les distancies
+        for(solution.setSeguent_germa(1); solution.getSeguent_germa() < servidors.length;
+            solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
+
+            if(millor_distancia > aux[solution.getSeguent_germa()] && solution.getActivitats()){
+
+            }   //if
+
+        }   //for
+
         return true;
     }
 
     public void add(){
 
-        if(!solution.getActivitats()[solution.getSeguent_germa()].
-                contains(candidates[solution.getSeguent_nivell()].getActivity())){
-            solution.getActivitats()[solution.getSeguent_germa()].
-                    add(candidates[solution.getSeguent_nivell()].getActivity());
-        }   //if
-
+        solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
         solution.setUsuaris(solution.getSeguent_germa(), solution.getSeguent_germa());
     }
 

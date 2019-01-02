@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Solution {
 
-    private ArrayList[] activitats;
+    private double[] activitats;
     private int[] usuaris;
     private int seguent_germa;
     private int seguent_nivell;
@@ -14,19 +14,19 @@ public class Solution {
         this.usuaris = new int[usuaris.length];
         seguent_germa = 0;
         seguent_nivell = 0;
-        activitats = new ArrayList[servidors.length];
+        activitats = new double[servidors.length];
 
         for(int i = 0; i < usuaris.length; i++){
             this.usuaris[i] = -1;
         }   //for
     }
 
-    public ArrayList[] getActivitats() {
-        return activitats;
+    public double getActivitats(int pos) {
+        return activitats[pos];
     }
 
-    public void setActivitats(ArrayList[] activitats) {
-        this.activitats = activitats;
+    public void setActivitats(double activitat, int pos) {
+        this.activitats[pos] += activitat;
     }
 
     public void setUsuaris(int[] usuaris) {
