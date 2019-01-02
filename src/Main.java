@@ -26,6 +26,7 @@ public class Main {
         Servidor[] servidors = tracteJSON.readJSONServers(SERVERS_PATH);
         NodeXarxa[] nodes_xarxa = tracteJSON.readJSONNodes(NODE_PATH);
 
+        /*
         Greedy greedy = new Greedy(usuaris, servidors);
 
         Solution solution = greedy.greedy();
@@ -35,6 +36,11 @@ public class Main {
 
         BackTracking backTracking = new BackTracking(usuaris, servidors);
         solution = backTracking.backtrackingDistribucio(solution);
+        */
+
+        BackTracking backTracking2 = new BackTracking(servidors, nodes_xarxa, 1, 4);
+        Solution solution2 = new Solution(1, 4, servidors);
+        solution2 = backTracking2.backtrackingDistribucio(solution2);
 
         System.out.println("Gracies per usar el nostre programa!");
     }

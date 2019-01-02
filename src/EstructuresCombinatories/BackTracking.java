@@ -17,8 +17,10 @@ public class BackTracking {
         solution = new Solution(candidates, servidors);
     }
 
-    public BackTracking(NodeXarxa[] nodes_xarxa){
+    public BackTracking(Servidor[] servidors, NodeXarxa[] nodes_xarxa, int from_node, int to_node){
+        this.servidors = servidors;
         this.nodes_xarxa = nodes_xarxa;
+        solution = new Solution(from_node, to_node, servidors);
     }
 
     public Solution backtrackingDistribucio(Solution best){
