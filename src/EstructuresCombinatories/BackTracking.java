@@ -80,9 +80,11 @@ public class BackTracking {
     }
 
     public boolean esPrometedora2(Solution best){
-        return solution.getCost() < best.getCost() && !solution.getVisited(solution.getSeguent_nivell());
+        return solution.getCost() < best.getCost();
     }
 
+
+    //TODO: es algo de cami, no em queda la posicio correctament per formar be l'array de cami
     public Solution backtrackingCamiFiable(Solution best){
 
         if(casTrivial2())
@@ -102,9 +104,10 @@ public class BackTracking {
                     solution.setVisited(solution.getSeguent_nivell(), true);
                     solution.setSeguent_nivell(nodes_xarxa[solution.getSeguent_nivell()].
                             getConnectsTo().get(solution.getSeguent_germa()).getTo());
+
                     backtrackingCamiFiable(best);
 
-                    solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
+                    solution.setSeguent_nivell(solution.getSeguent_nivell());
                     //solution.setVisited(solution.getSeguent_nivell(), false);
                     //solution.setCost(solution.);
 
