@@ -1,5 +1,6 @@
 package EstructuresCombinatories;
 
+import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
 
@@ -12,6 +13,7 @@ public class Solution {
     private int seguent_germa;
     private int seguent_nivell;
     private int[] cami;
+    private boolean[] visited;
     private double cost;
     private int from_node;
     private int to_node;
@@ -27,18 +29,21 @@ public class Solution {
         }   //for
     }
 
-    public Solution(int from_node, int to_node, Servidor[] servidors){
+    public Solution(int from_node, int to_node, NodeXarxa[] nodes_xarxa){
         seguent_germa = 0;
-        seguent_nivell = 0;
-        cost = 9999;
+        seguent_nivell = from_node - 1;
+        cost = 0;
+        visited = new boolean[nodes_xarxa.length];
         this.from_node = from_node;
         this.to_node = to_node;
 
-        cami = new int[servidors.length];
+        cami = new int[nodes_xarxa.length];
 
-        for(int i = 0; i < servidors.length; i++)
+        for(int i = 0; i < nodes_xarxa.length; i++) {
+
             cami[i] = -1;
-
+            visited[i] = false;
+        }   //for
     }
 
     public double getMax(){
@@ -129,5 +134,13 @@ public class Solution {
 
     public void setTo_node(int to_node) {
         this.to_node = to_node;
+    }
+
+    public boolean getVisited(int pos) {
+        return visited[pos];
+    }
+
+    public void setVisited(int pos, boolean value) {
+        visited[pos] = value;
     }
 }
