@@ -12,7 +12,7 @@ public class Solution {
     private int[] usuaris;
     private int seguent_germa;
     private int seguent_nivell;
-    private int[] cami;
+    private ArrayList cami;
     private boolean[] visited;
     private double cost;
     private int from_node;
@@ -29,21 +29,15 @@ public class Solution {
         }   //for
     }
 
-    public Solution(int from_node, int to_node, NodeXarxa[] nodes_xarxa){
+    public Solution(int from_node, int to_node, NodeXarxa[] nodes_xarxa, Servidor[] servidors){
         seguent_germa = 0;
         seguent_nivell = from_node - 1;
         cost = 0;
         visited = new boolean[nodes_xarxa.length];
-        this.from_node = from_node;
-        this.to_node = to_node;
+        this.from_node = servidors[from_node - 1].getReachable_from();
+        this.to_node = servidors[to_node - 1].getReachable_from();
 
-        cami = new int[nodes_xarxa.length];
-
-        for(int i = 0; i < nodes_xarxa.length; i++) {
-
-            cami[i] = -1;
-            visited[i] = false;
-        }   //for
+        cami = new ArrayList();
     }
 
     public double getMax(){
@@ -104,14 +98,6 @@ public class Solution {
         this.seguent_nivell = seguent_nivell;
     }
 
-    public int[] getCami() {
-        return cami;
-    }
-
-    public void setCami(int pos, int value) {
-        cami[pos] = value;
-    }
-
     public double getCost() {
         return cost;
     }
@@ -142,5 +128,13 @@ public class Solution {
 
     public void setVisited(int pos, boolean value) {
         visited[pos] = value;
+    }
+
+    public ArrayList getCami() {
+        return cami;
+    }
+
+    public void setCami(int element) {
+        cami.add(element);
     }
 }
