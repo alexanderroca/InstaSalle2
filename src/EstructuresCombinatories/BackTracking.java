@@ -64,7 +64,7 @@ public class BackTracking {
 
         else {
             if(solution.getCami().size() > 0) {
-                if (solution.getTo_node() == (int) solution.getCami().get(solution.getCami().size() - 1))
+                if (solution.getTo_node() == solution.getCami().get(solution.getCami().size() - 1))
                     trobat = true;
             }   //if
         }   //else
@@ -104,7 +104,7 @@ public class BackTracking {
 
 
     //TODO: es algo de cami, no em queda la posicio correctament per formar be l'array de cami
-    public Solution backtrackingCamiFiable(Solution best, int i){
+    public Solution backtrackingCamiFiable(Solution best){
 
         if(casTrivial2())
             best = tracteSolucio2(best);
@@ -112,21 +112,24 @@ public class BackTracking {
         else{
 
             for(solution.setSeguent_germa(0);
-                solution.getSeguent_germa() < nodes_xarxa[i].getConnectsTo().size();
+                solution.getSeguent_germa() < nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().size();
                 solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
                 if (esPrometedora2(best)) {
 
                     int aux = solution.getSeguent_nivell();
+                    double aux_cost = solution.getCost();
 
-                    solution.setCami(nodes_xarxa[i].getConnectsTo().get(solution.getSeguent_germa()).getTo());
-                    solution.setCost(nodes_xarxa[i].getReliability());
+                    solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
+                    solution.setCost(nodes_xarxa[solution.getSeguent_nivell()].getReliability());
+                    solution.setSeguent_nivell(nodes_xarxa[nodes_xarxa[solution.getSeguent_nivell()].getId() - 1]
+                            .getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
                     solution.setVisited(solution.getSeguent_nivell(), true);
-                    solution.setSeguent_nivell(nodes_xarxa[i].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
 
-                    best = backtrackingCamiFiable(best, solution.getSeguent_nivell());
+                    best = backtrackingCamiFiable(best);
 
-                    solution.getCami().remove(aux);
+                    solution.getCami().remove(aux - 1);
+                    solution.setCost(-aux_cost);
 
                 }   //if
             }   //for

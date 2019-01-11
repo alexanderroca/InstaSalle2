@@ -4,7 +4,7 @@
     <list default="true" id="60e76a53-7c29-4052-a025-46986456db58" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/BackTracking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/BackTracking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/Solution.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -35,25 +35,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="java" value="7894" />
+          <entry key="java" value="8069" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7894" />
+          <entry key="JAVA" value="8069" />
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="java" value="33" />
+          <entry key="java" value="34" />
           <entry key="json" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="33" />
+          <entry key="JAVA" value="34" />
           <entry key="JSON" value="13" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+            <state relative-caret-position="181">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="130" selection-start-line="130" selection-end-line="130" />
+            <state relative-caret-position="238">
+              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
               <folding>
                 <element signature="e#2068#2069#0" expanded="true" />
                 <element signature="e#2104#2105#0" expanded="true" />
@@ -83,6 +83,7 @@
                 <element signature="e#2660#2661#0" expanded="true" />
                 <element signature="e#2998#2999#0" expanded="true" />
                 <element signature="e#3033#3034#0" expanded="true" />
+                <element signature="e#3087#3088#0" expanded="true" />
                 <element signature="e#3123#3124#0" expanded="true" />
                 <element signature="e#2880#2881#0" expanded="true" />
                 <element signature="e#2907#2908#0" expanded="true" />
@@ -96,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="123" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="187">
+              <caret line="124" column="113" lean-forward="true" selection-start-line="124" selection-start-column="113" selection-end-line="124" selection-end-column="113" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jsons/nodes.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="51">
+              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -147,8 +148,8 @@
         <option value="$PROJECT_DIR$/src/Element/Usuari.java" />
         <option value="$PROJECT_DIR$/src/BackTracking.java" />
         <option value="$PROJECT_DIR$/src/EstructuresCombinatories/Cami.java" />
-        <option value="$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java" />
         <option value="$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java" />
       </list>
     </option>
@@ -216,7 +217,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547208442267" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547210624694" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/library/gson-2.8.2.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -266,12 +267,12 @@
       <workItem from="1546383523468" duration="10019000" />
       <workItem from="1546425723720" duration="21309000" />
       <workItem from="1547024721540" duration="595000" />
-      <workItem from="1547153789814" duration="12752000" />
+      <workItem from="1547153789814" duration="14933000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50105000" />
+    <option name="totallyTimeSpent" value="52286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -286,8 +287,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.3295082" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40163934" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40163934" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -350,13 +351,25 @@
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>46</line>
           <properties />
-          <option name="timeStamp" value="51" />
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java</url>
-          <line>108</line>
+          <line>128</line>
           <properties />
-          <option name="timeStamp" value="93" />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java</url>
+          <line>130</line>
+          <properties />
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -422,13 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jsons/nodes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jsons/servers.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -436,17 +442,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="jar://D:/Archivos de programa/SDK/lib/src.zip!/java.base/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+        <state relative-caret-position="113">
+          <caret line="477" column="19" selection-start-line="477" selection-start-column="19" selection-end-line="477" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="130" selection-start-line="130" selection-end-line="130" />
+        <state relative-caret-position="238">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
           <folding>
             <element signature="e#2068#2069#0" expanded="true" />
             <element signature="e#2104#2105#0" expanded="true" />
@@ -454,6 +460,7 @@
             <element signature="e#2660#2661#0" expanded="true" />
             <element signature="e#2998#2999#0" expanded="true" />
             <element signature="e#3033#3034#0" expanded="true" />
+            <element signature="e#3087#3088#0" expanded="true" />
             <element signature="e#3123#3124#0" expanded="true" />
             <element signature="e#2880#2881#0" expanded="true" />
             <element signature="e#2907#2908#0" expanded="true" />
@@ -463,10 +470,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/jsons/nodes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="187">
+          <caret line="124" column="113" lean-forward="true" selection-start-line="124" selection-start-column="113" selection-end-line="124" selection-end-column="113" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

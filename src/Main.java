@@ -42,7 +42,7 @@ public class Main {
         Solution solution2 = new Solution(1, 4, nodes_xarxa, servidors);
         solution2.setCost(9999);
 
-        solution2 = backTracking2.backtrackingCamiFiable(solution2, solution2.getFrom_node());
+        solution2 = backTracking2.backtrackingCamiFiable(solution2);
 
         System.out.println("Gracies per usar el nostre programa!");
     }

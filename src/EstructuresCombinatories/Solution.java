@@ -12,7 +12,7 @@ public class Solution {
     private int[] usuaris;
     private int seguent_germa;
     private int seguent_nivell;
-    private ArrayList cami;
+    private ArrayList<Integer> cami;
     private boolean[] visited;
     private double cost;
     private int from_node;
@@ -31,14 +31,14 @@ public class Solution {
 
     public Solution(int from_server, int to_server, NodeXarxa[] nodes_xarxa, Servidor[] servidors){
         seguent_germa = 0;
-        seguent_nivell = from_node - 1;
         cost = 0;
         visited = new boolean[nodes_xarxa.length];
         visited[servidors[from_server - 1].getReachable_from() - 1] = true;
         from_node = servidors[from_server - 1].getReachable_from();
         to_node = servidors[to_server - 1].getReachable_from();
+        seguent_nivell = from_node;
 
-        cami = new ArrayList();
+        cami = new ArrayList<>();
     }
 
     public double getMax(){
@@ -131,7 +131,7 @@ public class Solution {
         visited[pos] = value;
     }
 
-    public ArrayList getCami() {
+    public ArrayList<Integer> getCami() {
         return cami;
     }
 
