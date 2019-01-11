@@ -17,9 +17,10 @@ public class BackTracking {
         solution = new Solution(candidates, servidors);
     }
 
-    public BackTracking(NodeXarxa[] nodes_xarxa, int from_node, int to_node, Servidor[] servidors){
+    public BackTracking(NodeXarxa[] nodes_xarxa, int from_server, int to_server, Servidor[] servidors){
         this.nodes_xarxa = nodes_xarxa;
-        solution = new Solution(from_node, to_node, nodes_xarxa, servidors);
+        solution = new Solution(servidors[from_server - 1].getReachable_from(),
+                servidors[to_server - 1].getReachable_from(), nodes_xarxa, servidors);
     }
 
     public Solution backtrackingDistribucio(Solution best){
@@ -116,12 +117,16 @@ public class BackTracking {
 
                 if (esPrometedora2(best)) {
 
+                    int aux = solution.getSeguent_nivell();
+
                     solution.setCami(nodes_xarxa[i].getConnectsTo().get(solution.getSeguent_germa()).getTo());
                     solution.setCost(nodes_xarxa[i].getReliability());
                     solution.setVisited(solution.getSeguent_nivell(), true);
                     solution.setSeguent_nivell(nodes_xarxa[i].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
 
                     best = backtrackingCamiFiable(best, solution.getSeguent_nivell());
+
+                    solution.getCami().remove(aux);
 
                 }   //if
             }   //for

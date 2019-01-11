@@ -29,13 +29,14 @@ public class Solution {
         }   //for
     }
 
-    public Solution(int from_node, int to_node, NodeXarxa[] nodes_xarxa, Servidor[] servidors){
+    public Solution(int from_server, int to_server, NodeXarxa[] nodes_xarxa, Servidor[] servidors){
         seguent_germa = 0;
         seguent_nivell = from_node - 1;
         cost = 0;
         visited = new boolean[nodes_xarxa.length];
-        this.from_node = servidors[from_node - 1].getReachable_from();
-        this.to_node = servidors[to_node - 1].getReachable_from();
+        visited[servidors[from_server - 1].getReachable_from() - 1] = true;
+        from_node = servidors[from_server - 1].getReachable_from();
+        to_node = servidors[to_server - 1].getReachable_from();
 
         cami = new ArrayList();
     }
