@@ -103,7 +103,7 @@ public class Solution {
     }
 
     public void setCost(double cost) {
-        this.cost = cost;
+        this.cost += cost;
     }
 
     public int getFrom_node() {

@@ -36,7 +36,7 @@ public class Main {
 
         BackTracking backTracking = new BackTracking(usuaris, servidors);
         solution = backTracking.backtrackingDistribucio(solution);
-        */
+*/
 
         BackTracking backTracking2 = new BackTracking(nodes_xarxa, 1, 4, servidors);
         Solution solution2 = new Solution(1, 4, nodes_xarxa, servidors);

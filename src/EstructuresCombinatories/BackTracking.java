@@ -37,7 +37,7 @@ public class BackTracking {
                     solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
 
                     solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
-                    backtrackingDistribucio(best);
+                    best = backtrackingDistribucio(best);
 
                     solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
 
@@ -116,18 +116,13 @@ public class BackTracking {
 
                 if (esPrometedora2(best)) {
 
-                    int aux = solution.getSeguent_nivell();
-
                     solution.setCami(nodes_xarxa[i].getConnectsTo().get(solution.getSeguent_germa()).getTo());
-                    solution.setCost(solution.getCost() +
-                            nodes_xarxa[solution.getSeguent_germa()].getReliability());
+                    solution.setCost(nodes_xarxa[i].getReliability());
                     solution.setVisited(solution.getSeguent_nivell(), true);
                     solution.setSeguent_nivell(nodes_xarxa[i].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
 
-                    backtrackingCamiFiable(best, solution.getSeguent_nivell());
+                    best = backtrackingCamiFiable(best, solution.getSeguent_nivell());
 
-                    solution.setSeguent_nivell(aux);
-                    solution.getCami().remove(solution.getCami().size() - 1);
                 }   //if
             }   //for
         }   //else
