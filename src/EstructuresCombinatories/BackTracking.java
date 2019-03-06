@@ -159,7 +159,6 @@ public class BackTracking {
 
                     solution = cloneSolution(aux);
                 }   //if
-                System.out.println(solution.getSeguent_germa());
             }   //for
         }   //else
 
@@ -170,6 +169,29 @@ public class BackTracking {
 
         if(casTrivial2())
             best = tracteSolucio3(best);
+
+        else{
+
+            for(solution.setSeguent_germa(0);
+                solution.getSeguent_germa() < nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().size();
+                solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
+
+                if (esPrometedora2()) {
+
+                    Solution aux = cloneSolution(solution);
+
+                    solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
+                    solution.setCost(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getCost());
+                    solution.setSeguent_nivell(nodes_xarxa[nodes_xarxa[solution.getSeguent_nivell()].getId() - 1]
+                            .getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
+                    solution.setVisited(solution.getSeguent_nivell(), true);
+
+                    best = backtrackingCamiMinimCost(best);
+
+                    solution = cloneSolution(aux);
+                }   //if
+            }   //for
+        }   //else
 
         return best;
     }
