@@ -116,6 +116,10 @@ public class Solution {
         this.cost += cost;
     }
 
+    public void setCost3(double cost){
+        this.cost = cost;
+    }
+
     public int getFrom_node() {
         return from_node;
     }

@@ -26,24 +26,25 @@ public class Main {
         Servidor[] servidors = tracteJSON.readJSONServers(SERVERS_PATH);
         NodeXarxa[] nodes_xarxa = tracteJSON.readJSONNodes(NODE_PATH);
 
+
+        Greedy greedy = new Greedy(usuaris, servidors, nodes_xarxa);
+
+        Solution solution = greedy.greedyCamiFiable(1, 3);
+
         /*
-        Greedy greedy = new Greedy(usuaris, servidors);
-
-        Solution solution = greedy.greedy();
-
         solution.setSeguent_nivell(0);
         solution.setSeguent_germa(0);
 
         BackTracking backTracking = new BackTracking(usuaris, servidors);
         solution = backTracking.backtrackingDistribucio(solution);
-*/
+
 
         BackTracking backTracking2 = new BackTracking(nodes_xarxa, 1, 4, servidors);
         Solution solution2 = new Solution(1, 4, nodes_xarxa, servidors);
         solution2.setCost(0);
 
         solution2 = backTracking2.backtrackingCamiFiable(solution2);
-
+        */
         System.out.println("Gracies per usar el nostre programa!");
     }
 }

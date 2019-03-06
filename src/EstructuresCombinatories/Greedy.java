@@ -1,5 +1,6 @@
 package EstructuresCombinatories;
 
+import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
 import EstructuresCombinatories.Solution;
@@ -8,14 +9,16 @@ public class Greedy {
 
     private Usuari[] candidates;
     private Servidor[] servidors;
+    private NodeXarxa[] nodes_xarxa;
     private Solution solution;
 
-    public Greedy(Usuari[] candidates, Servidor[] servidors) {
+    public Greedy(Usuari[] candidates, Servidor[] servidors, NodeXarxa[] nodes_xarxa) {
         this.candidates = candidates;
         this.servidors = servidors;
+        this.nodes_xarxa = nodes_xarxa;
     }
 
-    public Solution greedy(){
+    public Solution greedyDistribucio(){
         solution = new Solution(candidates, servidors);
 
         while(still_candidates_to_check()){
@@ -27,6 +30,34 @@ public class Greedy {
         }   //while
 
         return solution;
+    }
+
+    public Solution greedyCamiFiable(int from_server, int to_server){
+        solution = new Solution(from_server, to_server, nodes_xarxa, servidors);
+
+        solution.getCami().add(solution.getFrom_node());
+        boolean found = false;
+
+        while(!found){
+
+            isFeasible2();
+
+            if(isSolution())
+                found = true;
+
+            solution.setSeguent_nivell(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa() - 1).getTo());
+            solution.setSeguent_germa(0);
+        }   //while
+
+        solution.getCami().add(solution.getTo_node());
+        solution.setCost(nodes_xarxa[solution.getTo_node()].getReliability());
+
+        return solution;
+
+    }
+
+    public boolean isSolution(){
+        return solution.getTo_node() == solution.getSeguent_nivell();
     }
 
     public boolean still_candidates_to_check(){
@@ -77,6 +108,33 @@ public class Greedy {
         solution.setSeguent_germa(millor_servidor);
 
         return true;
+    }
+
+    public void isFeasible2(){
+
+        double millor_cost = solution.getCost();
+        int millor_node = 99;
+
+        for(solution.setSeguent_germa(0); solution.getSeguent_germa() < nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().size();
+            solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
+
+            if(solution.getSeguent_germa() == 0){
+                millor_cost *= nodes_xarxa[solution.getSeguent_germa()].getReliability();
+                millor_node = nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1;
+            }
+            else{
+
+                double aux_cost = solution.getCost() * nodes_xarxa[solution.getSeguent_germa()].getReliability();
+                if(aux_cost > millor_cost){
+                    millor_cost *= nodes_xarxa[solution.getSeguent_germa()].getReliability();
+                    millor_node = nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1;
+                }   //if
+            }
+
+        }   //for
+
+        solution.getCami().add(millor_node);
+        solution.setCost3(millor_cost);
     }
 
     public void add(){
