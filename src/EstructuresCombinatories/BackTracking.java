@@ -95,6 +95,16 @@ public class BackTracking {
         return best;
     }
 
+    public Solution tracteSolucio3(Solution best){
+        solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
+        solution.setVisited(solution.getSeguent_nivell(), true);
+
+        if(solution.getCost() < best.getCost())
+            best = solution;
+
+        return best;
+    }
+
     public boolean esPrometedora(Solution best){
         return (solution.getMax() - solution.getMin()) < (best.getMax() - best.getMin());
     }
@@ -152,6 +162,14 @@ public class BackTracking {
                 System.out.println(solution.getSeguent_germa());
             }   //for
         }   //else
+
+        return best;
+    }
+
+    public Solution backtrackingCamiMinimCost(Solution best){
+
+        if(casTrivial2())
+            best = tracteSolucio3(best);
 
         return best;
     }

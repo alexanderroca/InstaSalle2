@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60e76a53-7c29-4052-a025-46986456db58" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Element/ElementUsuari/Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Element/ElementUsuari/Connection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Element/ElementUsuari/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Element/ElementUsuari/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Element/Node/Connectat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Element/Node/Connectat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Element/Node/NodeXarxa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Element/Node/NodeXarxa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Element/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Element/Servidor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Element/Usuari.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Element/Usuari.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/BackTracking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/BackTracking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/Greedy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/Greedy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/EstructuresCombinatories/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica2/TracteJSON/TracteJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica2/TracteJSON/TracteJSON.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EstructuresCombinatories/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,12 +40,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="java" value="9588" />
+          <entry key="java" value="9663" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9588" />
+          <entry key="JAVA" value="9663" />
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
@@ -94,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="95" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="258">
+              <caret line="171" column="34" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -271,7 +256,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551863964165" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551864328957" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -332,12 +317,12 @@
       <workItem from="1550080647196" duration="413000" />
       <workItem from="1550652586409" duration="589000" />
       <workItem from="1551777333096" duration="8000" />
-      <workItem from="1551861841656" duration="2268000" />
+      <workItem from="1551861841656" duration="2686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73721000" />
+    <option name="totallyTimeSpent" value="74139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -549,8 +534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EstructuresCombinatories/BackTracking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="258">
+          <caret line="171" column="34" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
