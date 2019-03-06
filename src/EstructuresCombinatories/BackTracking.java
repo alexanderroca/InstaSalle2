@@ -181,7 +181,7 @@ public class BackTracking {
                     Solution aux = cloneSolution(solution);
 
                     solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
-                    solution.setCost(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getCost());
+                    solution.setCost2(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getCost());
                     solution.setSeguent_nivell(nodes_xarxa[nodes_xarxa[solution.getSeguent_nivell()].getId() - 1]
                             .getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
                     solution.setVisited(solution.getSeguent_nivell(), true);

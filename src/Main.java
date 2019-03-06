@@ -40,9 +40,9 @@ public class Main {
 
         BackTracking backTracking2 = new BackTracking(nodes_xarxa, 1, 4, servidors);
         Solution solution2 = new Solution(1, 4, nodes_xarxa, servidors);
-        solution2.setCost(9999);
+        solution2.setCost(0);
 
-        solution2 = backTracking2.backtrackingCamiMinimCost(solution2);
+        solution2 = backTracking2.backtrackingCamiFiable(solution2);
 
         System.out.println("Gracies per usar el nostre programa!");
     }

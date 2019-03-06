@@ -36,7 +36,7 @@ public class Solution {
 
     public Solution(int from_server, int to_server, NodeXarxa[] nodes_xarxa, Servidor[] servidors){
         seguent_germa = 0;
-        cost = 0;
+        cost = 1;
         visited = new boolean[nodes_xarxa.length];
         visited[servidors[from_server - 1].getReachable_from() - 1] = true;
         from_node = servidors[from_server - 1].getReachable_from() - 1;
@@ -109,6 +109,10 @@ public class Solution {
     }
 
     public void setCost(double cost) {
+        this.cost *= cost;
+    }
+
+    public void setCost2(double cost){
         this.cost += cost;
     }
 
