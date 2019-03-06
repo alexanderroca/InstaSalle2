@@ -29,13 +29,18 @@ public class Solution {
         }   //for
     }
 
+    public Solution(int size){
+        visited = new boolean[size];
+        cami = new ArrayList<>();
+    }
+
     public Solution(int from_server, int to_server, NodeXarxa[] nodes_xarxa, Servidor[] servidors){
         seguent_germa = 0;
         cost = 0;
         visited = new boolean[nodes_xarxa.length];
         visited[servidors[from_server - 1].getReachable_from() - 1] = true;
-        from_node = servidors[from_server - 1].getReachable_from();
-        to_node = servidors[to_server - 1].getReachable_from();
+        from_node = servidors[from_server - 1].getReachable_from() - 1;
+        to_node = servidors[to_server - 1].getReachable_from() - 1;
         seguent_nivell = from_node;
 
         cami = new ArrayList<>();
@@ -125,6 +130,10 @@ public class Solution {
 
     public boolean getVisited(int pos) {
         return visited[pos];
+    }
+
+    public boolean[] getVisited() {
+        return visited;
     }
 
     public void setVisited(int pos, boolean value) {

@@ -64,7 +64,7 @@ public class BackTracking {
 
         else {
             if(solution.getCami().size() > 0) {
-                if (solution.getTo_node() == solution.getCami().get(solution.getCami().size() - 1))
+                if (solution.getTo_node() == solution.getSeguent_nivell())
                     trobat = true;
             }   //if
         }   //else
@@ -85,10 +85,11 @@ public class BackTracking {
 
     public Solution tracteSolucio2(Solution best){
 
-        if(best.getCost() == 9999)
-            best = solution;
+        solution.setCost(nodes_xarxa[solution.getTo_node()].getReliability());
+        solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
+        solution.setVisited(solution.getSeguent_nivell(), true);
 
-        else if(solution.getCost() > best.getCost())
+        if(solution.getCost() > best.getCost())
             best = solution;
 
         return best;
@@ -98,12 +99,31 @@ public class BackTracking {
         return (solution.getMax() - solution.getMin()) < (best.getMax() - best.getMin());
     }
 
-    public boolean esPrometedora2(Solution best){
-        return solution.getCost() < best.getCost() && !solution.getVisited(solution.getSeguent_germa());
+    public boolean esPrometedora2(){
+
+        return !solution.getVisited(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
     }
 
+    public Solution cloneSolution(Solution solution){
+        Solution aux = new Solution(solution.getVisited().length);
 
-    //TODO: es algo de cami, no em queda la posicio correctament per formar be l'array de cami
+        aux.setFrom_node(solution.getFrom_node());
+        aux.setTo_node(solution.getTo_node());
+        aux.setSeguent_germa(solution.getSeguent_germa());
+        aux.setSeguent_nivell(solution.getSeguent_nivell());
+        aux.setCost(solution.getCost());
+
+        for(int i = 0; i < solution.getVisited().length; i++){
+            aux.setVisited(i, solution.getVisited(i));
+        }   //for
+
+        for(int i = 0; i < solution.getCami().size(); i++){
+            aux.getCami().add(solution.getCami().get(i));
+        }   //for
+
+        return aux;
+    }
+
     public Solution backtrackingCamiFiable(Solution best){
 
         if(casTrivial2())
@@ -115,10 +135,9 @@ public class BackTracking {
                 solution.getSeguent_germa() < nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().size();
                 solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
-                if (esPrometedora2(best)) {
+                if (esPrometedora2()) {
 
-                    int aux = solution.getSeguent_nivell();
-                    double aux_cost = solution.getCost();
+                    Solution aux = cloneSolution(solution);
 
                     solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
                     solution.setCost(nodes_xarxa[solution.getSeguent_nivell()].getReliability());
@@ -128,10 +147,9 @@ public class BackTracking {
 
                     best = backtrackingCamiFiable(best);
 
-                    solution.getCami().remove(aux - 1);
-                    solution.setCost(-aux_cost);
-
+                    solution = cloneSolution(aux);
                 }   //if
+                System.out.println(solution.getSeguent_germa());
             }   //for
         }   //else
 

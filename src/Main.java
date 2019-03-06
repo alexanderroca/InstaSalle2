@@ -38,9 +38,9 @@ public class Main {
         solution = backTracking.backtrackingDistribucio(solution);
 */
 
-        BackTracking backTracking2 = new BackTracking(nodes_xarxa, 1, 4, servidors);
-        Solution solution2 = new Solution(1, 4, nodes_xarxa, servidors);
-        solution2.setCost(9999);
+        BackTracking backTracking2 = new BackTracking(nodes_xarxa, 4, 1, servidors);
+        Solution solution2 = new Solution(4, 1, nodes_xarxa, servidors);
+        solution2.setCost(0);
 
         solution2 = backTracking2.backtrackingCamiFiable(solution2);
 
