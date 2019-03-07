@@ -36,6 +36,8 @@ public class Greedy {
         solution = new Solution(from_server, to_server, nodes_xarxa, servidors);
 
         solution.getCami().add(solution.getFrom_node());
+        solution.setVisited(solution.getFrom_node(), true);
+
         boolean found = false;
 
         while(!found){
@@ -49,9 +51,9 @@ public class Greedy {
             solution.setSeguent_germa(0);
         }   //while
 
-        solution.getCami().add(solution.getTo_node());
+        /*solution.getCami().add(solution.getTo_node());
         solution.setCost(nodes_xarxa[solution.getTo_node()].getReliability());
-
+*/
         return solution;
 
     }
@@ -125,7 +127,7 @@ public class Greedy {
             else{
 
                 double aux_cost = solution.getCost() * nodes_xarxa[solution.getSeguent_germa()].getReliability();
-                if(aux_cost > millor_cost){
+                if(aux_cost > millor_cost && solution.getVisited()[solution.getSeguent_germa()]){
                     millor_cost *= nodes_xarxa[solution.getSeguent_germa()].getReliability();
                     millor_node = nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1;
                 }   //if
@@ -134,6 +136,8 @@ public class Greedy {
         }   //for
 
         solution.getCami().add(millor_node);
+        solution.setSeguent_nivell(millor_node);
+        solution.setVisited(millor_node, true);
         solution.setCost3(millor_cost);
     }
 

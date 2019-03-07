@@ -29,7 +29,7 @@ public class Main {
 
         Greedy greedy = new Greedy(usuaris, servidors, nodes_xarxa);
 
-        Solution solution = greedy.greedyCamiFiable(1, 3);
+        Solution solution = greedy.greedyCamiFiable(3, 1);
 
         /*
         solution.setSeguent_nivell(0);
