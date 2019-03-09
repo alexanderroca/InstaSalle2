@@ -51,11 +51,31 @@ public class Greedy {
             solution.setSeguent_germa(0);
         }   //while
 
-        /*solution.getCami().add(solution.getTo_node());
-        solution.setCost(nodes_xarxa[solution.getTo_node()].getReliability());
-*/
+
         return solution;
 
+    }
+
+    public Solution greedyCamiMesCurt(int from_server, int to_server){
+        solution = new Solution(from_server, to_server, nodes_xarxa, servidors);
+
+        solution.getCami().add(solution.getFrom_node());
+        solution.setVisited(solution.getFrom_node(), true);
+
+        boolean found = false;
+
+        while(!found){
+
+            isFeasible3();
+
+            if(isSolution())
+                found = true;
+
+            solution.setSeguent_nivell(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa() - 1).getTo());
+            solution.setSeguent_germa(0);
+        }   //while
+
+        return solution;
     }
 
     public boolean isSolution(){
@@ -133,6 +153,32 @@ public class Greedy {
                 }   //if
             }
 
+        }   //for
+
+        solution.getCami().add(millor_node);
+        solution.setSeguent_nivell(millor_node);
+        solution.setVisited(millor_node, true);
+        solution.setCost3(millor_cost);
+    }
+
+    public void isFeasible3() {
+        double millor_cost = solution.getCost();
+        int millor_node = 0;
+
+        for (solution.setSeguent_germa(0); solution.getSeguent_germa() < nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().size();
+             solution.setSeguent_germa(solution.getSeguent_germa() + 1)) {
+
+            if(solution.getSeguent_germa() == 0){
+                millor_cost += nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getCost();
+                millor_node = nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1;
+            }   //if
+            else{
+                double aux_cost = solution.getCost() + nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getCost();
+                if(aux_cost < millor_cost && solution.getVisited()[solution.getSeguent_germa()]){
+                    millor_cost +=  nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getCost();
+                    millor_node = nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1;
+                }   //if
+            }   //else
         }   //for
 
         solution.getCami().add(millor_node);
