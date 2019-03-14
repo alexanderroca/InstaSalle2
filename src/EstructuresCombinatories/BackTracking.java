@@ -32,17 +32,15 @@ public class BackTracking {
             for(solution.setSeguent_germa(0); solution.getSeguent_germa() < servidors.length - 1;
                 solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
 
-                if(esPrometedora(best)){
+                solution.setUsuaris(solution.getSeguent_nivell(), solution.getSeguent_germa());
+                solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
 
-                    solution.setUsuaris(solution.getSeguent_nivell(), solution.getSeguent_germa());
-                    solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
+                solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
+                best = backtrackingDistribucio(best);
 
-                    solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
-                    best = backtrackingDistribucio(best);
+                solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
 
-                    solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
 
-                }   //if
             }   //for
         }   //else
 
@@ -50,7 +48,7 @@ public class BackTracking {
     }
 
     public boolean casTrivial(){
-        return solution.getSeguent_nivell() == solution.getUsuaris().length - 1;
+        return solution.getSeguent_nivell() == solution.getUsuaris().length;
     }
 
     public boolean casTrivial2(){
@@ -77,8 +75,10 @@ public class BackTracking {
         double equitivitat_best = best.getMax() - best.getMin();
         double equitivitat_solution = solution.getMax() - solution.getMin();
 
-        if(equitivitat_best > equitivitat_solution)
-            best = solution;
+        if(equitivitat_best > equitivitat_solution) {
+            best = cloneSolution2(solution);
+            best.setTolerancia(equitivitat_solution);
+        }   //if
 
         return best;
     }
@@ -90,7 +90,7 @@ public class BackTracking {
         solution.setVisited(solution.getSeguent_nivell(), true);
 
         if(solution.getCost() > best.getCost())
-            best = solution;
+            best = cloneSolution(solution);
 
         return best;
     }
@@ -100,18 +100,31 @@ public class BackTracking {
         solution.setVisited(solution.getSeguent_nivell(), true);
 
         if(solution.getCost() < best.getCost())
-            best = solution;
+            best = cloneSolution(solution);
 
         return best;
-    }
-
-    public boolean esPrometedora(Solution best){
-        return (solution.getMax() - solution.getMin()) < (best.getMax() - best.getMin());
     }
 
     public boolean esPrometedora2(){
 
         return !solution.getVisited(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
+    }
+
+    public Solution cloneSolution2(Solution solution){
+        Solution aux = new Solution(candidates, servidors);
+
+        aux.setSeguent_germa(solution.getSeguent_germa());
+        aux.setSeguent_nivell(solution.getSeguent_nivell());
+
+        for(int i = 0; i < solution.getActivitats().length; i++){
+            aux.getActivitats()[i] = solution.getActivitats()[i];
+        }   //for
+
+        for (int i = 0; i < solution.getUsuaris().length; i++){
+            aux.getUsuaris()[i] = solution.getUsuaris()[i];
+        }   //for
+
+        return solution;
     }
 
     public Solution cloneSolution(Solution solution){

@@ -17,12 +17,14 @@ public class Solution {
     private double cost;
     private int from_node;
     private int to_node;
+    private double tolerancia;
 
     public Solution(Usuari[] usuaris, Servidor[] servidors) {
         this.usuaris = new int[usuaris.length];
         seguent_germa = 0;
         seguent_nivell = 0;
         activitats = new double[servidors.length];
+        tolerancia = 0;
 
         for(int i = 0; i < usuaris.length; i++){
             this.usuaris[i] = -1;
@@ -72,8 +74,20 @@ public class Solution {
         return min;
     }
 
+    public double getTolerancia() {
+        return tolerancia;
+    }
+
+    public void setTolerancia(double tolerancia) {
+        this.tolerancia = tolerancia;
+    }
+
     public double getActivitats(int pos) {
         return activitats[pos];
+    }
+
+    public double[] getActivitats() {
+        return activitats;
     }
 
     public void setActivitats(double activitat, int pos) {
