@@ -24,7 +24,7 @@ public class Solution {
         seguent_germa = 0;
         seguent_nivell = 0;
         activitats = new double[servidors.length];
-        tolerancia = 0;
+        tolerancia = 999;
 
         for(int i = 0; i < usuaris.length; i++){
             this.usuaris[i] = -1;

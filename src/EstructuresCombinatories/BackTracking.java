@@ -29,8 +29,12 @@ public class BackTracking {
             best = tracteSolucio(best);
 
         else{
-            for(solution.setSeguent_germa(0); solution.getSeguent_germa() < servidors.length - 1;
+            for(solution.setSeguent_germa(0); solution.getSeguent_germa() < servidors.length;
                 solution.setSeguent_germa(solution.getSeguent_germa() + 1)){
+
+                Solution aux = new Solution(candidates, servidors);
+
+                cloneSolution2(solution, aux);
 
                 solution.setUsuaris(solution.getSeguent_nivell(), solution.getSeguent_germa());
                 solution.setActivitats(candidates[solution.getSeguent_nivell()].getActivity() , solution.getSeguent_germa());
@@ -38,8 +42,7 @@ public class BackTracking {
                 solution.setSeguent_nivell(solution.getSeguent_nivell() + 1);
                 best = backtrackingDistribucio(best);
 
-                solution.setSeguent_nivell(solution.getSeguent_nivell() - 1);
-
+                cloneSolution2(aux, solution);
 
             }   //for
         }   //else
@@ -72,11 +75,10 @@ public class BackTracking {
 
     public Solution tracteSolucio(Solution best){
 
-        double equitivitat_best = best.getMax() - best.getMin();
         double equitivitat_solution = solution.getMax() - solution.getMin();
 
-        if(equitivitat_best > equitivitat_solution) {
-            best = cloneSolution2(solution);
+        if(best.getTolerancia() > equitivitat_solution) {
+            cloneSolution2(solution, best);
             best.setTolerancia(equitivitat_solution);
         }   //if
 
@@ -90,7 +92,7 @@ public class BackTracking {
         solution.setVisited(solution.getSeguent_nivell(), true);
 
         if(solution.getCost() > best.getCost())
-            best = cloneSolution(solution);
+            cloneSolution(solution, best);
 
         return best;
     }
@@ -100,7 +102,7 @@ public class BackTracking {
         solution.setVisited(solution.getSeguent_nivell(), true);
 
         if(solution.getCost() < best.getCost())
-            best = cloneSolution(solution);
+            cloneSolution(solution, best);
 
         return best;
     }
@@ -110,8 +112,7 @@ public class BackTracking {
         return !solution.getVisited(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getTo() - 1);
     }
 
-    public Solution cloneSolution2(Solution solution){
-        Solution aux = new Solution(candidates, servidors);
+    public void cloneSolution2(Solution solution, Solution aux){
 
         aux.setSeguent_germa(solution.getSeguent_germa());
         aux.setSeguent_nivell(solution.getSeguent_nivell());
@@ -124,11 +125,9 @@ public class BackTracking {
             aux.getUsuaris()[i] = solution.getUsuaris()[i];
         }   //for
 
-        return solution;
     }
 
-    public Solution cloneSolution(Solution solution){
-        Solution aux = new Solution(solution.getVisited().length);
+    public void cloneSolution(Solution solution, Solution aux){
 
         aux.setFrom_node(solution.getFrom_node());
         aux.setTo_node(solution.getTo_node());
@@ -144,7 +143,6 @@ public class BackTracking {
             aux.getCami().add(solution.getCami().get(i));
         }   //for
 
-        return aux;
     }
 
     public Solution backtrackingCamiFiable(Solution best){
@@ -160,7 +158,8 @@ public class BackTracking {
 
                 if (esPrometedora2()) {
 
-                    Solution aux = cloneSolution(solution);
+                    Solution aux = new Solution(solution.getVisited().length);
+                    cloneSolution(solution, aux);
 
                     solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
                     solution.setCost(nodes_xarxa[solution.getSeguent_nivell()].getReliability());
@@ -170,7 +169,7 @@ public class BackTracking {
 
                     best = backtrackingCamiFiable(best);
 
-                    solution = cloneSolution(aux);
+                    cloneSolution(aux, solution);
                 }   //if
             }   //for
         }   //else
@@ -191,7 +190,8 @@ public class BackTracking {
 
                 if (esPrometedora2()) {
 
-                    Solution aux = cloneSolution(solution);
+                    Solution aux = new Solution(solution.getVisited().length);
+                    cloneSolution(solution, aux);
 
                     solution.getCami().add(nodes_xarxa[solution.getSeguent_nivell()].getId());
                     solution.setCost2(nodes_xarxa[solution.getSeguent_nivell()].getConnectsTo().get(solution.getSeguent_germa()).getCost());
@@ -201,7 +201,7 @@ public class BackTracking {
 
                     best = backtrackingCamiMinimCost(best);
 
-                    solution = cloneSolution(aux);
+                    cloneSolution(aux, solution);
                 }   //if
             }   //for
         }   //else
