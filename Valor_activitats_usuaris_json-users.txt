@@ -1,0 +1,8 @@
+Users:
+0-claudia.peiro: 5.0
+1-albert.pernia: 2.0
+2-culinaryvictim: 15.0
+3-alberto.soto: 20.0
+4-eduard.de.torres: 16.0
+5-jordi.male: 1.0
+6-sergi.simo: 4.0

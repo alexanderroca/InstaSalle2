@@ -1,0 +1,91 @@
+Practica 2 PAED:
+Distribuir els usuaris a diferents servidors.
+Connexio entre servidors.
+
+Buscar solucio.
+
+Datasets en format JSON:
+-Usuari
+-Servidor
+-Node de Xarxa
+
+Usuaris -> Node de xarxa ... -> Servidor
+
+Funcionalitats:
+�Servidors interconnectats a partir de nodes de xarxa.
+
+Objectiu: Buscar 2 camins diferents: -El m�s fiable
+				     -M�nim cost
+Calcul de la fiabilitat: productori del camp reliability de Node Xarxa
+
+�Distribuir N Usuaris a M Servidors:
+	Prioritats: 1.activitats similars amb els usuaris d'un servidor
+		    2.proximitat del servidor
+
+�Calcul d'equitivitat de carrega:
+	equitivitat = servidor_amb_mes_carrega - servidor_amb_menys_carrega
+
+
+ArrayList d'Usuaris on el contingut tindran a quin servidor aniran.
+
+Classificar els Nodes i Usuaris en HashTables com la practica 1.
+
+Profunditat: Usuari
+Amplada: Servidor
+
+Cost: Servidor^Usuari
+
+struct Connection:
+	username
+	since
+	visits
+	likes
+	comments
+fistruct
+
+struct Post
+	id
+	liked_by
+	commented_by
+	published
+	location
+	category
+fistruct
+
+struct Usuari:
+	followers
+	follows
+	activity
+	Connection[]
+	Post[]
+fistruct
+
+struct Servidor:
+	id
+	country
+	location
+	reachable_from
+fistruct
+
+struct Connects_to
+	name [id<Node_Xarxa>, id<Node_Xarxa>]
+	cost
+fistruct
+
+struct Node_Xarxa:
+	id
+	reliability
+	Connects_to[]	
+fistruct
+
+struct Solucio
+
+fistruct
+	
+Aplicar EstructuresCombinatories.Greedy per trobar una solucio. Seguidament fer EstructuresCombinatories.BackTracking i despres Branch&Bound.
+
+Seg�ent_nivell: Usuari+1
+Seg�ent_germa: Servidor+1
+
+Heuristica funcionalitat de distribucio: nombre_activitats * proximitat_acumulada,
+Distancia d'un usuari amb un servidor: �ltim post publicat. 
