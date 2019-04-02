@@ -99,7 +99,7 @@ public class BackTracking {
             cloneSolution2(solution, best);
             best.setTolerancia(equitivitat_solution);
         }   //if
-        else if(millorQualitatDistancia(best, solution) && Math.abs(equitivitat_solution - best.getTolerancia()) <= 2){
+        else if(millorQualitatDistancia(best, solution) && Math.abs(equitivitat_solution - best.getTolerancia()) <= 99){
             cloneSolution2(solution, best);
             best.setTolerancia(equitivitat_solution);
         }
