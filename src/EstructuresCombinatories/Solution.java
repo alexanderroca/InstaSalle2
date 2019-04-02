@@ -18,6 +18,7 @@ public class Solution {
     private int from_node;
     private int to_node;
     private double tolerancia;
+    private double[] distancia_acumulada;
 
     public Solution(Usuari[] usuaris, Servidor[] servidors) {
         this.usuaris = new int[usuaris.length];
@@ -25,7 +26,7 @@ public class Solution {
         seguent_nivell = 0;
         activitats = new double[servidors.length];
         tolerancia = 999;
-
+        distancia_acumulada = new double[servidors.length + 1];
         for(int i = 0; i < usuaris.length; i++){
             this.usuaris[i] = -1;
         }   //for
@@ -44,7 +45,7 @@ public class Solution {
         from_node = servidors[from_server - 1].getReachable_from() - 1;
         to_node = servidors[to_server - 1].getReachable_from() - 1;
         seguent_nivell = from_node;
-
+        distancia_acumulada = new double[servidors.length];
         cami = new ArrayList<>();
     }
 
@@ -168,5 +169,13 @@ public class Solution {
 
     public void setCami(int element) {
         cami.add(element);
+    }
+
+    public double[] getDistancia_acumulada() {
+        return distancia_acumulada;
+    }
+
+    public void setDistancia_acumulada(double distancia, int pos) {
+        distancia_acumulada[pos] = distancia_acumulada[pos] + distancia;
     }
 }

@@ -27,12 +27,12 @@ public class Main {
         NodeXarxa[] nodes_xarxa = tracteJSON.readJSONNodes(NODE_PATH);
 
 
-        Greedy greedy = new Greedy(usuaris, servidors, nodes_xarxa);
+        /*Greedy greedy = new Greedy(usuaris, servidors, nodes_xarxa);
 
-        //Solution solution = greedy.greedyCamiMesCurt(4, 1);
+        Solution solution = greedy.greedyCamiMesCurt(4, 1);
         Solution solution1 = greedy.greedyCamiFiable(4, 1);
-
-       /* Solution solution = new Solution(usuaris, servidors);
+*/
+        Solution solution = new Solution(usuaris, servidors);
 
         solution.setSeguent_nivell(0);
         solution.setSeguent_germa(0);
@@ -42,7 +42,6 @@ public class Main {
         solution = backTracking.backtrackingDistribucio(solution);
         long end_time = System.currentTimeMillis();
         System.out.println("Temps: " + (double)(end_time - start_time));
-*/
 /*
         BackTracking backTracking2 = new BackTracking(nodes_xarxa, 1, 4, servidors);
         Solution solution2 = new Solution(1, 4, nodes_xarxa, servidors);

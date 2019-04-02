@@ -1,8 +1,11 @@
 package EstructuresCombinatories;
 
+import Element.ElementUsuari.Post;
 import Element.Node.NodeXarxa;
 import Element.Servidor;
 import Element.Usuari;
+
+import java.util.ArrayList;
 
 public class BackTracking {
 
@@ -73,6 +76,21 @@ public class BackTracking {
         return trobat;
     }
 
+    public boolean  millorQualitatDistancia(Solution best, Solution solution){
+        boolean ok = false; // Si es fals, és millor el best
+        int suma_best = 0, suma_solution = 0;
+
+        for(int i = 0; i < best.getDistancia_acumulada().length; i++){
+            suma_best += best.getDistancia_acumulada()[i];
+            suma_solution += solution.getDistancia_acumulada()[i];
+        }   //for
+
+        if(suma_solution < suma_best)
+            ok = true;
+
+        return ok;
+    }
+
     public Solution tracteSolucio(Solution best){
 
         double equitivitat_solution = solution.getMax() - solution.getMin();
@@ -81,6 +99,10 @@ public class BackTracking {
             cloneSolution2(solution, best);
             best.setTolerancia(equitivitat_solution);
         }   //if
+        else if(millorQualitatDistancia(best, solution) && Math.abs(equitivitat_solution - best.getTolerancia()) <= 2){
+            cloneSolution2(solution, best);
+            best.setTolerancia(equitivitat_solution);
+        }
 
         return best;
     }
@@ -125,6 +147,19 @@ public class BackTracking {
             aux.getUsuaris()[i] = solution.getUsuaris()[i];
         }   //for
 
+        if(solution.getSeguent_nivell() > 0) {
+            double latitudO = (double) candidates[solution.getSeguent_nivell() - 1].getPosts().
+                    get(candidates[solution.getSeguent_nivell() - 1].getPosts().size() - 1).getLocation().get(0);
+            double longitudO = (double) candidates[solution.getSeguent_nivell() - 1].getPosts().
+                    get(candidates[solution.getSeguent_nivell() - 1].getPosts().size() - 1).getLocation().get(1);
+            double latitudF = (double) servidors[solution.getSeguent_germa()].getLocation().get(0);
+            double longitudF = (double) servidors[solution.getSeguent_germa()].getLocation().get(1);
+            double r = Math.abs(candidates[solution.getSeguent_nivell() - 1].calculaDistancia(latitudO, longitudO, latitudF, longitudF));
+            solution.setDistancia_acumulada(r, solution.getSeguent_germa());
+        }   //if
+        for(int i = 0; i < solution.getDistancia_acumulada().length; i++){
+            aux.getDistancia_acumulada()[i] = solution.getDistancia_acumulada()[i];
+        }   //for
     }
 
     public void cloneSolution(Solution solution, Solution aux){
